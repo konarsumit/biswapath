@@ -9,14 +9,14 @@ T = {  # interface text
  "en": dict(lang="en", other="bn", other_label="বাংলা", skip="Skip to content",
    nav=[("Study abroad", [("Universities", "/universities/"), ("FAQ", "/faq/"), ("Statistics", "/statistics/"), ("Overview", "/#abroad")]),
         ("Learn", [("School", "/#school"), ("Compare education systems", "/education-systems/"), ("Research & PhD", "/#research")]),
-        ("About", [("About BiswaPath", "/about/"), ("Contribute", "/contribute/"), ("Editorial policy", "/editorial-policy/")])],
+        ("About", [("About BiswaPath", "/about/"), ("My journey", "/my-journey/"), ("Contribute", "/contribute/"), ("Editorial policy", "/editorial-policy/")])],
    foot_nav=[("Education systems compared", "/education-systems/"), ("FAQ", "/faq/"), ("Statistics", "/statistics/"), ("About", "/about/"), ("Contribute", "/contribute/"), ("Editorial policy", "/editorial-policy/"), ("Privacy", "/privacy/")],
    foot="BiswaPath is free for every student, always. Founded by Dr Sumit Konar.",
    soon="In preparation"),
  "bn": dict(lang="bn", other="en", other_label="English", skip="মূল লেখায় যান",
    nav=[("বিদেশে পড়াশোনা", [("বিশ্ববিদ্যালয়", "/bn/universities/"), ("প্রশ্নোত্তর", "/bn/faq/"), ("পরিসংখ্যান", "/bn/statistics/"), ("এক নজরে", "/bn/#abroad")]),
         ("শেখা", [("স্কুল", "/bn/#school"), ("শিক্ষাব্যবস্থার তুলনা", "/bn/education-systems/"), ("গবেষণা ও PhD", "/bn/#research")]),
-        ("আমাদের কথা", [("বিশ্বপাঠ সম্পর্কে", "/bn/about/"), ("যুক্ত হোন", "/bn/contribute/"), ("সম্পাদকীয় নীতি", "/bn/editorial-policy/")])],
+        ("আমাদের কথা", [("বিশ্বপাঠ সম্পর্কে", "/bn/about/"), ("আমার যাত্রা", "/bn/my-journey/"), ("যুক্ত হোন", "/bn/contribute/"), ("সম্পাদকীয় নীতি", "/bn/editorial-policy/")])],
    foot_nav=[("শিক্ষাব্যবস্থার তুলনা", "/bn/education-systems/"), ("প্রশ্নোত্তর", "/bn/faq/"), ("পরিসংখ্যান", "/bn/statistics/"), ("আমাদের কথা", "/bn/about/"), ("যুক্ত হোন", "/bn/contribute/"), ("সম্পাদকীয় নীতি", "/bn/editorial-policy/"), ("গোপনীয়তা", "/bn/privacy/")],
    foot="বিশ্বপাঠ সব ছাত্রছাত্রীর জন্য সবসময় বিনামূল্যে। প্রতিষ্ঠাতা ড. সুমিত কোনার।",
    soon="প্রস্তুত হচ্ছে"),
@@ -101,9 +101,9 @@ HOME = {
    help_h="Help build BiswaPath", help_p="Teachers, researchers and students: if you can explain one topic well, you can help thousands of students. Contributions are voluntary and every article carries its author's name.",
    help_btn="Become a contributor",
    founder_h="Why this exists",
-   founder_p=["I am Dr Sumit Konar, a chemist living in the UK. I grew up learning in Bengali, and I know how much a clear explanation or one honest piece of advice can change a student's path.",
+   founder_p=["I am Dr Sumit Konar. I grew up in Galigram, a village in Purba Bardhaman, and studied at a Bengali-medium school until Class 12. That path took me to Narendrapur, IIT Madras, Arizona, Stockholm, Edinburgh and now the University of Lincoln. Many students are just as capable; what they often lack is access to information, guidance and people who can show them what is possible.",
               "BiswaPath will stay free for students, always. No paywalls, no paid courses, and no selling of anyone's data."],
-   founder_more="More about BiswaPath",
+   founder_more="Read my journey", founder_link="/my-journey/",
    title="", desc="Free bilingual learning and guidance for Bengali-speaking students: school chemistry, studying abroad, and research and PhD careers."),
  "bn": dict(
    meaning='<em>পাঠ</em> মানে শেখা। <em>পথ</em> মানে রাস্তা। ইংরেজি অক্ষরে দুটোই লেখা হয় “path”, আর বিশ্বপাঠ মানে দুটোই: বিশ্ব থেকে শেখা, আর বিশ্বের দিকে এগিয়ে যাওয়ার পথ।',
@@ -120,9 +120,9 @@ HOME = {
    help_h="বিশ্বপাঠ গড়ে তুলতে সাহায্য করুন", help_p="শিক্ষক, গবেষক বা ছাত্রছাত্রী: একটা বিষয় ভালো করে বোঝাতে পারলে আপনি হাজারো ছাত্রছাত্রীকে সাহায্য করতে পারেন। যুক্ত হওয়া স্বেচ্ছায়, আর প্রতিটি লেখায় লেখকের নাম থাকবে।",
    help_btn="লেখক হিসেবে যুক্ত হোন",
    founder_h="কেন এই উদ্যোগ",
-   founder_p=["আমি ড. সুমিত কোনার, UK-তে থাকা একজন রসায়নবিদ। আমি বাংলায় পড়াশোনা করে বড় হয়েছি, আর জানি একটা পরিষ্কার ব্যাখ্যা বা একটা সৎ পরামর্শ একজন ছাত্রের পথ কতটা বদলে দিতে পারে।",
+   founder_p=["আমি ড. সুমিত কোনার। পূর্ব বর্ধমানের গ্রাম গলিগ্রামে বড় হয়েছি, ক্লাস টুয়েলভ পর্যন্ত পড়েছি বাংলা-মাধ্যম স্কুলে। সেই পথ আমাকে নিয়ে গেছে নরেন্দ্রপুর, IIT Madras, অ্যারিজোনা, স্টকহোম, এডিনবরা হয়ে এখন University of Lincoln-এ। অনেক ছাত্রছাত্রী ঠিক ততটাই মেধাবী; তাদের যা প্রায়ই থাকে না, তা হল তথ্য, সঠিক দিশা, আর এমন মানুষ যাঁরা দেখিয়ে দিতে পারেন কী কী সম্ভব।",
               "বিশ্বপাঠ ছাত্রছাত্রীদের জন্য সবসময় বিনামূল্যে থাকবে। কোনো পেওয়াল নেই, পেইড কোর্স নেই, কারও তথ্য বিক্রি নেই।"],
-   founder_more="বিশ্বপাঠ সম্পর্কে আরও",
+   founder_more="আমার যাত্রার কথা পড়ুন", founder_link="/bn/my-journey/",
    title="", desc="বাংলাভাষী ছাত্রছাত্রীদের জন্য বিনামূল্যে দ্বিভাষিক পড়াশোনা ও পরামর্শ: স্কুলের কেমিস্ট্রি, বিদেশে পড়াশোনা, গবেষণা ও PhD।"),
 }
 
@@ -149,7 +149,7 @@ def home(lang):
 </section>
 <section class="wrap section" aria-labelledby="why-h">
   <h2 id="why-h">{c['founder_h']}</h2>
-  <div class="founder"><div class="initials" aria-hidden="true">সু</div><div>{''.join(f'<p>{x}</p>' for x in c['founder_p'])}<p><a href="{pre}/about/">{c['founder_more']}</a></p></div></div>
+  <div class="founder"><div class="initials" aria-hidden="true">সু</div><div>{''.join(f'<p>{x}</p>' for x in c['founder_p'])}<p><a href="{c['founder_link']}">{c['founder_more']}</a> · <a href="{pre}/about/">{'About BiswaPath' if lang=='en' else 'বিশ্বপাঠ সম্পর্কে'}</a></p></div></div>
 </section>"""
     return page(lang, "/" if lang == "en" else "/bn/", c["title"], c["desc"], body)
 
@@ -166,7 +166,7 @@ PAGES = {
 <li>Your data is not for sale.</li>
 </ul>
 <h2>Founder</h2>
-<p>BiswaPath was founded in 2026 by Dr Sumit Konar, a chemist with a PhD and international research experience, based in the UK. He also runs <a href="https://www.sumitkonar.com/">Global Puja Parikrama</a>, a map of Durga Pujas around the world.</p>
+<p>BiswaPath was founded in 2026 by Dr Sumit Konar, a chemist at the University of Lincoln who grew up in a village in Purba Bardhaman and studied at a Bengali-medium school. <a href="/my-journey/">Read his journey</a>. He also runs <a href="https://www.sumitkonar.com/">Global Puja Parikrama</a>, a map of Durga Pujas around the world.</p>
 <h2>How it is built</h2>
 <p>The website is built with the help of AI tools (Claude and ChatGPT) and reviewed by people. Content is written or checked by named contributors.</p>
 <h2>A note on advice</h2>
@@ -182,7 +182,7 @@ PAGES = {
 <li>আপনার তথ্য বিক্রির জন্য নয়।</li>
 </ul>
 <h2>প্রতিষ্ঠাতা</h2>
-<p>২০২৬ সালে বিশ্বপাঠ শুরু করেন ড. সুমিত কোনার, UK-তে থাকা একজন রসায়নবিদ, যাঁর PhD আর আন্তর্জাতিক গবেষণার অভিজ্ঞতা আছে। তিনি <a href="https://www.sumitkonar.com/">Global Puja Parikrama</a>-ও চালান, সারা পৃথিবীর দুর্গাপুজোর একটি ম্যাপ।</p>
+<p>২০২৬ সালে বিশ্বপাঠ শুরু করেন ড. সুমিত কোনার, University of Lincoln-এর একজন রসায়নবিদ, যিনি পূর্ব বর্ধমানের একটি গ্রামে বড় হয়েছেন আর বাংলা-মাধ্যম স্কুলে পড়েছেন। <a href="/bn/my-journey/">তাঁর যাত্রার কথা পড়ুন</a>। তিনি <a href="https://www.sumitkonar.com/">Global Puja Parikrama</a>-ও চালান, সারা পৃথিবীর দুর্গাপুজোর একটি ম্যাপ।</p>
 <h2>কীভাবে তৈরি</h2>
 <p>ওয়েবসাইটটি AI টুলের (Claude ও ChatGPT) সাহায্যে তৈরি, আর মানুষ যাচাই করেন। প্রতিটি লেখা লেখেন বা যাচাই করেন নাম-সহ লেখকেরা।</p>
 <h2>পরামর্শ নিয়ে একটি কথা</h2>
@@ -341,6 +341,9 @@ for _l in ("en", "bn"):
 import faq_page
 for _l in ("en", "bn"):
     PAGES.setdefault("faq", {})[_l] = faq_page.content(_l)
+import journey_page
+for _l in ("en", "bn"):
+    PAGES.setdefault("my-journey", {})[_l] = journey_page.content(_l)
 import stats_page
 for _l in ("en", "bn"):
     PAGES.setdefault("statistics", {})[_l] = stats_page.content(_l)

@@ -277,3 +277,9 @@ sup { line-height: 0; }
   .top { position: relative; }
 }
 @media (min-width: 761px) { .menu:last-of-type .drop { left: auto; right: -1rem; } }
+
+/* My journey: the path drawn as stops on the red margin line */
+.prose .journey { margin: 1.2rem 0 1.6rem; }
+.prose .journey .stop { padding-bottom: .9rem; }
+.prose .journey .stop h3 { font-size: 1.2rem; line-height: var(--line-h); }
+.prose .journey .stop p { margin: 0; color: var(--muted); }
