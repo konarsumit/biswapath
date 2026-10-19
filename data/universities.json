@@ -10,7 +10,8 @@
    "pg_src": "https://www.ox.ac.uk/admissions/graduate/application-guide/declaration-and-payment/application-fee",
    "ug_note": "UCAS deadline 15 Oct 2026 for 2027 entry (passed)",
    "chat": "https://ox.ac.uk/node/7038428",
-   "chat_note": "'Meet our international students' page"
+   "chat_note": "'Meet our international students' page",
+   "qs": "4"
   },
   "cambridge": {
    "name": "University of Cambridge",
@@ -23,7 +24,8 @@
    "ug_note": "UCAS deadline 15 Oct 2026 for 2027 entry (passed)",
    "scholarship": "Gates Cambridge (funding deadline 8 Dec 2026 for most applicants)",
    "chat": "https://www.postgraduate.study.cam.ac.uk/international/chat-our-students",
-   "society": "BanglaSoc (Graduate Union): https://www.gradunion.cam.ac.uk/organisation/banglasoc/"
+   "society": "BanglaSoc (Graduate Union): https://www.gradunion.cam.ac.uk/organisation/banglasoc/",
+   "qs": "6"
   },
   "ucl": {
    "name": "University College London (UCL)",
@@ -34,7 +36,8 @@
    "pg_src": "https://www.ucl.ac.uk/prospective-students/graduate/application-fees",
    "chat": "https://www.ucl.ac.uk/engineering/computer-science/study/unibuddy",
    "chat_note": "UCL runs Unibuddy chat per faculty (e.g. Computer Science, Life Sciences, IOE)",
-   "society": "Indian Society: https://studentsunionucl.org/clubs-societies/indian-society | Bangla Society (Students' Union UCL)"
+   "society": "Indian Society: https://studentsunionucl.org/clubs-societies/indian-society | Bangla Society (Students' Union UCL)",
+   "qs": "=8"
   },
   "lse": {
    "name": "London School of Economics (LSE)",
@@ -45,7 +48,8 @@
    "pg_src": "https://eshop.lse.ac.uk/product-catalogue/graduate-admissions/applications/graduate-admissions-application-assessment-fee-online-application",
    "chat": "https://www.lse.ac.uk/study-at-lse/chat-to-our-students",
    "society": "Bangla/Bangladesh Society (LSESU): https://lsesu.com/organisation/lsesubsoc",
-   "country_page": "India: https://www.lse.ac.uk/study-at-lse/international-students/country-pages/india | Bangladesh: https://lse.ac.uk/study-at-lse/international-students/country-pages/bangladesh"
+   "country_page": "India: https://www.lse.ac.uk/study-at-lse/international-students/country-pages/india | Bangladesh: https://lse.ac.uk/study-at-lse/international-students/country-pages/bangladesh",
+   "qs": "62"
   },
   "imperial": {
    "name": "Imperial College London",
@@ -55,7 +59,8 @@
    "pg_fee": "£90 Master's (£125 Business School MSc); no fee for PhD; waivers for financial hardship (2027-28)",
    "pg_src": "https://imperial.ac.uk/study/pg/apply/fees/application-fees",
    "chat": "https://www.imperial.ac.uk/study/chat-to-our-students/",
-   "society": "Indian Society: https://www.imperialcollegeunion.org/activities/a-to-z/indian"
+   "society": "Indian Society: https://www.imperialcollegeunion.org/activities/a-to-z/indian",
+   "qs": "=2"
   },
   "kcl": {
    "name": "King's College London",
@@ -68,7 +73,8 @@
    "pg_src": "https://www.kcl.ac.uk/study/postgraduate-taught/courses/physics-msc/fees",
    "chat": "https://www.kcl.ac.uk/study/postgraduate-taught/offer-holders/subjects",
    "chat_note": "Offer-holder subject pages include chats with students",
-   "society": "Bangladeshi Society (KCLSU): https://kclsu.org/groups/activities/join/kclbsoc"
+   "society": "Bangladeshi Society (KCLSU): https://kclsu.org/groups/activities/join/kclbsoc",
+   "qs": "37"
   },
   "manchester": {
    "name": "University of Manchester",
@@ -81,7 +87,8 @@
    "pg_src": "https://www.manchester.ac.uk/study/masters/courses/list/04410/msc-structural-engineering/course-details/CIVL60000",
    "chat": "https://www.manchester.ac.uk/study/chat-with-our-students",
    "society": "India student societies page: https://www.manchester.ac.uk/study/international/country-specific-information/india/student-societies/",
-   "country_page": "https://www.manchester.ac.uk/study/international/country-specific-information/india/"
+   "country_page": "https://www.manchester.ac.uk/study/international/country-specific-information/india/",
+   "qs": "=40"
   },
   "warwick": {
    "name": "University of Warwick",
@@ -93,7 +100,8 @@
    "pg_src": "https://warwick.ac.uk/study/postgraduate/apply/faqs/",
    "ug_note": "",
    "chat": "https://warwick.ac.uk/study/unibuddy/",
-   "society": "Indian Society: https://www.warwicksu.com/societies/indian/ | Bengali Society: https://www.warwicksu.com/societies-sports/societies/bsoc/"
+   "society": "Indian Society: https://www.warwicksu.com/societies/indian/ | Bengali Society: https://www.warwicksu.com/societies-sports/societies/bsoc/",
+   "qs": "=68"
   },
   "bristol": {
    "name": "University of Bristol",
@@ -103,7 +111,8 @@
    "pg_fee": "£60 only for Business School and Economics taught Master's (2027/28); waiver for nationals of medium/low HDI countries (India and Bangladesh are medium HDI – check)",
    "pg_src": "https://www.bristol.ac.uk/media-library/sites/study/documents/policies/2027-Application Fee Policy.pdf",
    "chat": "https://www.bristol.ac.uk/study/postgraduate/visits-open-days/postgraduate-chats/",
-   "society": "BanglaSoc: https://www.bristolsu.org.uk/groups/banglasoc-university-of-bristol-bangla-society-4b22"
+   "society": "BanglaSoc: https://www.bristolsu.org.uk/groups/banglasoc-university-of-bristol-bangla-society-4b22",
+   "qs": "57"
   },
   "glasgow": {
    "name": "University of Glasgow",
@@ -113,7 +122,8 @@
    "pg_fee": "£25 may be charged for some programmes",
    "pg_deadline": "Six application rounds per cycle; places may become limited from 16 December",
    "pg_src": "https://gla.ac.uk/media/Media_1149116_smxx.pdf",
-   "chat": "https://www.gla.ac.uk/study/studentlife/askastudent/askastudentenquiryform"
+   "chat": "https://www.gla.ac.uk/study/studentlife/askastudent/askastudentenquiryform",
+   "qs": "80"
   },
   "leeds": {
    "name": "University of Leeds",
@@ -124,7 +134,8 @@
    "pg_deadline": "International: typically 30 Jul 2027 (some courses earlier)",
    "pg_src": "https://www.leeds.ac.uk/mastersapply",
    "chat": "https://www.leeds.ac.uk/chat-to-students",
-   "society": "Bengali Society: https://engage.luu.org.uk/groups/7TP/bengali | Bangladeshi Society: https://engage.luu.org.uk/groups/G37VY/bangladeshi-society"
+   "society": "Bengali Society: https://engage.luu.org.uk/groups/7TP/bengali | Bangladeshi Society: https://engage.luu.org.uk/groups/G37VY/bangladeshi-society",
+   "qs": "=77"
   },
   "southampton": {
    "name": "University of Southampton",
@@ -145,7 +156,8 @@
    "pg_fee": "Some courses charge a fee (shown when applying)",
    "pg_deadline": "International (2026/27 entry): taught 3 Aug 2026, research 17 Aug 2026; 2027/28 dates to be confirmed",
    "pg_src": "https://www.nottingham.ac.uk/pgstudy/how-to-apply/apply-online.aspx",
-   "chat": "https://www.nottingham.ac.uk/open-days/chat-to-our-students"
+   "chat": "https://www.nottingham.ac.uk/open-days/chat-to-our-students",
+   "qs": "=97"
   },
   "sheffield": {
    "name": "University of Sheffield",
@@ -156,7 +168,8 @@
    "scholarship": "International Postgraduate Scholarship 2027: £7,000 off tuition, automatic, for India (not Bangladesh); accept offer by 6 Jul 2027",
    "scholarship_src": "https://sheffield.ac.uk/international/fees-and-funding/scholarships/postgraduate/international-postgraduate-scholarship-2027",
    "pg_src": "https://www.sheffield.ac.uk/apply",
-   "chat": "https://sheffield.ac.uk/study/chat"
+   "chat": "https://sheffield.ac.uk/study/chat",
+   "qs": "=82"
   },
   "birmingham": {
    "name": "University of Birmingham",
@@ -167,7 +180,8 @@
    "pg_deadline": "Sept 2027 entry: most taught courses 2 Jul 2027; deposit by 30 Jul 2027",
    "pg_src": "https://www.birmingham.ac.uk/study/postgraduate/taught/apply",
    "chat": "https://birmingham.ac.uk/International/meet",
-   "society": "Bengali Society (Guild of Students): https://guildofstudents.com/studentgroups/societies/bengali"
+   "society": "Bengali Society (Guild of Students): https://guildofstudents.com/studentgroups/societies/bengali",
+   "qs": "=68"
   },
   "qmul": {
    "name": "Queen Mary University of London",
@@ -190,7 +204,8 @@
    "scholarship_src": "https://dur.ac.uk/study/scholarships/international/durham-inspiring-excellence-scholarships/postgraduate/",
    "pg_fee": "See applicant portal",
    "chat": "https://dur.ac.uk/study/student-connect/unibuddy/",
-   "society": "Bangla Society: https://www.durhamsu.com/groups/bangla-society | Indian Society: https://www.durhamsu.com/groups/indian-e6ce"
+   "society": "Bangla Society: https://www.durhamsu.com/groups/bangla-society | Indian Society: https://www.durhamsu.com/groups/indian-e6ce",
+   "qs": "85"
   },
   "newcastle": {
    "name": "Newcastle University",
@@ -217,7 +232,8 @@
    "city": "Edinburgh",
    "web": "https://www.ed.ac.uk",
    "pg_fee": "See programme page",
-   "chat": "https://study.ed.ac.uk/chat-to-our-students"
+   "chat": "https://study.ed.ac.uk/chat-to-our-students",
+   "qs": "35"
   },
   "tum": {
    "name": "Technical University of Munich (TUM)",
@@ -227,7 +243,8 @@
    "pg_deadline": "Master's: 31 May (winter semester), 30 Nov (summer semester); some programmes differ",
    "pg_tuition": "Non-EU: Master's usually €4,000 or €6,000 per semester (rising to €4,600/€6,800 from WS 2027/28)",
    "pg_src": "https://www.mygermanuniversity.com/universities/Technical-University-of-Munich/application-deadlines ; https://www.gradgermany.com/blog/germany-tuition-fees-by-state-2026",
-   "society": "Munich Indian Students Association (MISA): https://www.misa.hsg.fs.tum.de/"
+   "society": "Munich Indian Students Association (MISA): https://www.misa.hsg.fs.tum.de/",
+   "qs": "25"
   },
   "lmu": {
    "name": "LMU Munich",
@@ -237,7 +254,8 @@
    "pg_deadline": "Master's: 15 Jul (winter), 15 Jan (summer); programmes vary",
    "pg_tuition": "No general tuition for international students (some programmes charge, e.g. PPE €5,250/semester)",
    "pg_src": "https://www.mygermanuniversity.com/universities/LMU-Ludwig-Maximilians-Universitaet-Muenchen/application-deadlines ; https://migaku.com/blog/language-fun/tum-lmu-heidelberg-tuition-guide-for-international-students",
-   "society": "Munich Indian Students Association (MISA): https://www.misa.hsg.fs.tum.de/"
+   "society": "Munich Indian Students Association (MISA): https://www.misa.hsg.fs.tum.de/",
+   "qs": "61"
   },
   "heidelberg": {
    "name": "Heidelberg University",
@@ -246,7 +264,8 @@
    "web": "https://www.uni-heidelberg.de",
    "pg_tuition": "Non-EU: €1,500 per semester + €161.10 semester contribution",
    "pg_deadline": "Check programme page",
-   "pg_src": "https://migaku.com/blog/language-fun/tum-lmu-heidelberg-tuition-guide-for-international-students"
+   "pg_src": "https://migaku.com/blog/language-fun/tum-lmu-heidelberg-tuition-guide-for-international-students",
+   "qs": "86"
   },
   "rwth": {
    "name": "RWTH Aachen University",
@@ -275,7 +294,8 @@
    "web": "https://www.kth.se",
    "pg_fee": "SEK 900 (no waivers)",
    "pg_deadline": "Autumn 2027: apply 16 Oct 2026 – 15 Jan 2027; documents and fee by 1 Feb 2027",
-   "pg_src": "https://www.kth.se/en/2.985/admissions"
+   "pg_src": "https://www.kth.se/en/2.985/admissions",
+   "qs": "=82"
   },
   "lund": {
    "name": "Lund University",
@@ -285,7 +305,8 @@
    "pg_fee": "SEK 900 via universityadmissions.se",
    "pg_deadline": "Autumn 2027: national round deadline 15 Jan 2027",
    "chat": "https://lunduniversity.lu.se/student-life/before-you-arrive/chat-current-students",
-   "pg_src": "https://www.kth.se/en/2.985/admissions"
+   "pg_src": "https://www.kth.se/en/2.985/admissions",
+   "qs": "71"
   },
   "uppsala": {
    "name": "Uppsala University",
@@ -294,7 +315,8 @@
    "web": "https://www.uu.se",
    "pg_fee": "SEK 900 via universityadmissions.se",
    "pg_deadline": "Autumn 2027: national round deadline 15 Jan 2027",
-   "chat": "https://www.uu.se/en/study/masters-studies/meet-us/our-digital-ambassadors"
+   "chat": "https://www.uu.se/en/study/masters-studies/meet-us/our-digital-ambassadors",
+   "qs": "=87"
   },
   "chalmers": {
    "name": "Chalmers University of Technology",
@@ -311,7 +333,8 @@
    "city": "Stockholm",
    "web": "https://www.su.se",
    "pg_fee": "SEK 900 via universityadmissions.se",
-   "pg_deadline": "Autumn 2027: national round deadline 15 Jan 2027"
+   "pg_deadline": "Autumn 2027: national round deadline 15 Jan 2027",
+   "qs": "167"
   },
   "mit": {
    "name": "Massachusetts Institute of Technology (MIT)",
@@ -321,7 +344,8 @@
    "pg_fee": "Set by each programme; international applicants can't get hardship waivers",
    "pg_deadline": "Mostly December for fall entry – check programme page",
    "pg_src": "https://oge.mit.edu/graduate-admissions/applications/application-fee-waiver",
-   "society": "Sangam (Indian students): https://sangam.mit.edu/"
+   "society": "Sangam (Indian students): https://sangam.mit.edu/",
+   "qs": "1"
   },
   "stanford": {
    "name": "Stanford University",
@@ -330,7 +354,8 @@
    "web": "https://www.stanford.edu",
    "pg_fee": "e.g. Graduate School of Education: $125",
    "pg_deadline": "e.g. GSE 2027-28: PhD 16 Nov 2026; MA/MS 7 Jan 2027",
-   "pg_src": "https://ed.stanford.edu/admissions/application-reqs/programs"
+   "pg_src": "https://ed.stanford.edu/admissions/application-reqs/programs",
+   "qs": "=2"
   },
   "cmu": {
    "name": "Carnegie Mellon University",
@@ -340,7 +365,8 @@
    "pg_fee": "e.g. Information Networking Institute: $75 (waived if you attend an info session)",
    "pg_deadline": "e.g. INI Fall 2027: priority 1 Dec 2026, final 29 Jan 2027",
    "pg_tuition": "e.g. INI 2026-27: $30,755 per semester",
-   "pg_src": "https://www.cmu.edu/ini/admissions/howtoapply.html"
+   "pg_src": "https://www.cmu.edu/ini/admissions/howtoapply.html",
+   "qs": "55"
   },
   "uiuc": {
    "name": "University of Illinois Urbana-Champaign",
@@ -350,7 +376,8 @@
    "pg_fee": "$90 (international applicants generally can't get waivers)",
    "pg_deadline": "Set by each department",
    "pg_src": "https://grad.illinois.edu/application-fee",
-   "society": "Bengali Students Organization (Abol Tabol): https://one.illinois.edu/bengalistudentsorganization/home/"
+   "society": "Bengali Students Organization (Abol Tabol): https://one.illinois.edu/bengalistudentsorganization/home/",
+   "qs": "74"
   },
   "purdue": {
    "name": "Purdue University",
@@ -360,7 +387,139 @@
    "pg_fee": "$75 international ($60 domestic)",
    "pg_deadline": "e.g. Engineering (ACS) Fall: priority 15 Jan, final 31 Jul",
    "pg_src": "https://engineering.purdue.edu/ACS/application-requirements",
-   "society": "Indian clubs list: https://www.purdue.edu/india/students-and-faculty/clubs-associations.php"
+   "society": "Indian clubs list: https://www.purdue.edu/india/students-and-faculty/clubs-associations.php",
+   "qs": "=100"
+  },
+  "toronto": {
+   "name": "University of Toronto",
+   "country": "Canada",
+   "city": "Toronto",
+   "web": "https://www.utoronto.ca",
+   "pg_fee": "CAD 130 (programmes starting Sep 2026–May 2027); CAD 135 (from Sep 2027); no waivers; some programmes add a supplementary fee",
+   "pg_deadline": "Set by each programme – check the programme page",
+   "pg_src": "https://www.sgs.utoronto.ca/admissions/frequently-asked-questions-faqs/",
+   "qs": "32"
+  },
+  "mcgill": {
+   "name": "McGill University",
+   "country": "Canada",
+   "city": "Montreal",
+   "web": "https://www.mcgill.ca",
+   "pg_fee": "About CAD 137 (Fall 2025 figure; check current fee)",
+   "pg_deadline": "Varies by department, e.g. Pathology: 15 Jan (Fall), 1 Aug (Winter) for international applicants",
+   "pg_src": "https://www.mcgill.ca/pathology/programs/apply",
+   "qs": "30"
+  },
+  "ubc": {
+   "name": "University of British Columbia (UBC)",
+   "country": "Canada",
+   "city": "Vancouver",
+   "web": "https://www.ubc.ca",
+   "pg_fee": "Fee shown in the application portal; waived for citizens of the UN least developed countries (includes Bangladesh, not India)",
+   "pg_deadline": "Set by each programme",
+   "pg_src": "https://grad.ubc.ca/faq/3240",
+   "qs": "=45"
+  },
+  "waterloo": {
+   "name": "University of Waterloo",
+   "country": "Canada",
+   "city": "Waterloo",
+   "web": "https://uwaterloo.ca",
+   "pg_fee": "CAD 150 per programme, non-refundable",
+   "pg_deadline": "Set by each programme; apply 2–4 weeks before it",
+   "pg_src": "https://uwaterloo.ca/future-graduate-students/admissions/how-to-apply"
+  },
+  "alberta": {
+   "name": "University of Alberta",
+   "country": "Canada",
+   "city": "Edmonton",
+   "web": "https://www.ualberta.ca",
+   "pg_fee": "CAD 135, non-refundable",
+   "pg_deadline": "Varies by department, e.g. Cell Biology: 1 Jun (Sep start), 1 Oct (Jan start)",
+   "pg_src": "https://ualberta.ca/cellbiology/graduate-program/graduate-application-information",
+   "qs": "96"
+  },
+  "melbourne": {
+   "name": "University of Melbourne",
+   "country": "Australia",
+   "city": "Melbourne",
+   "web": "https://www.unimelb.edu.au",
+   "pg_fee": "AUD 154 per application (waivers only in listed cases, e.g. full sponsorship)",
+   "pg_deadline": "Closing dates on each course's 'How to apply' tab",
+   "pg_src": "https://study.unimelb.edu.au/how-to-apply/fees/application-fee",
+   "qs": "=22"
+  },
+  "sydney": {
+   "name": "University of Sydney",
+   "country": "Australia",
+   "city": "Sydney",
+   "web": "https://www.sydney.edu.au",
+   "pg_deadline": "Semester 1, 2027: generally 18 Dec 2026 for international postgraduates (some courses differ)",
+   "pg_src": "https://leapscholar.com/questions/what-is-the-university-of-sydney-deadline-for-international-postgraduate-applications-for-semester-1-and-2-of-2027",
+   "qs": "28"
+  },
+  "unsw": {
+   "name": "UNSW Sydney",
+   "country": "Australia",
+   "city": "Sydney",
+   "web": "https://www.unsw.edu.au",
+   "qs": "19",
+   "pg_deadline": "Check each course page"
+  },
+  "monash": {
+   "name": "Monash University",
+   "country": "Australia",
+   "city": "Melbourne",
+   "web": "https://www.monash.edu",
+   "pg_fee": "AUD 125 for international applicants applying directly (waiver codes at Monash events)",
+   "pg_deadline": "Check each course page",
+   "pg_src": "https://www.monash.edu/admissions/apply/online",
+   "qs": "31"
+  },
+  "anu": {
+   "name": "Australian National University (ANU)",
+   "country": "Australia",
+   "city": "Canberra",
+   "web": "https://www.anu.edu.au",
+   "pg_fee": "AUD 150 per application",
+   "pg_deadline": "Semester 1, 2027: 15 Dec 2026 (Crawford School: 31 Oct 2026); Semester 2, 2027: 15 May 2027",
+   "pg_src": "https://study.anu.edu.au/apply/international-applications",
+   "qs": "29"
+  },
+  "khalifa": {
+   "name": "Khalifa University",
+   "country": "UAE",
+   "city": "Abu Dhabi",
+   "web": "https://www.ku.ac.ae",
+   "scholarship": "Graduate scholarships for international applicants cover tuition and include a monthly allowance – confirm amounts and deadlines on ku.ac.ae",
+   "qs": "147"
+  },
+  "uaeu": {
+   "name": "United Arab Emirates University (UAEU)",
+   "country": "UAE",
+   "city": "Al Ain",
+   "web": "https://www.uaeu.ac.ae",
+   "pg_deadline": "Published each year by the College of Graduate Studies (cgs@uaeu.ac.ae)",
+   "pg_src": "https://www.uaeu.ac.ae/en/cgs/",
+   "qs": "217"
+  },
+  "aus": {
+   "name": "American University of Sharjah (AUS)",
+   "country": "UAE",
+   "city": "Sharjah",
+   "web": "https://www.aus.edu",
+   "pg_tuition": "2026–27 master's: AED 4,371 per credit hour (Arts and Sciences) or AED 5,480 (Engineering, Business, Architecture)",
+   "pg_src": "https://www.aus.edu/sites/default/files/fall-2026-payment-of-fees-guide-graduate-students-.pdf",
+   "qs": "258"
+  },
+  "hwdubai": {
+   "name": "Heriot-Watt University Dubai",
+   "country": "UAE",
+   "city": "Dubai",
+   "web": "https://www.hw.ac.uk/dubai",
+   "pg_fee": "AED 525 (AED 500 + VAT), non-refundable",
+   "pg_tuition": "Shown on each programme page; UK degree taught in Dubai",
+   "pg_src": "https://hw.ac.uk/dubai/study/fees-and-funding/tuition-fees"
   }
  },
  "country": {
@@ -389,6 +548,27 @@
    "ug_fee": "Set by each university (many charge $75–$90; 500+ colleges charge no fee to international applicants)",
    "ug_deadline": "Usually Early Action/Decision 1 Nov, Regular Decision 1–15 Jan",
    "src": "https://www.commonapp.org/static/ccc61bed5bdc22d15d0054106c6ef52b/Resource_FY_AppFees_ENG_2025.06.25.pdf"
+  },
+  "Canada": {
+   "ug_route": "Apply directly to each university (Ontario universities through OUAC)",
+   "ug_fee": "Application fees are usually about CAD 100–160",
+   "ug_deadline": "Most undergraduate deadlines fall between November and February for September entry",
+   "tuition": "Most new students also need a Provincial Attestation Letter; from 1 Jan 2026 master's and PhD students at public universities are exempt",
+   "src": "https://www.idp.com/india/blog/visa-rules-for-international-students-canada/"
+  },
+  "Australia": {
+   "ug_route": "Apply directly to each university",
+   "ug_fee": "Application fees are usually about AUD 100–155",
+   "ug_deadline": "Two main intakes: February/March (Semester 1) and July (Semester 2)",
+   "tuition": "Tuition is charged per year and varies by course; see each course page",
+   "src": "https://study.anu.edu.au/apply/international-applications"
+  },
+  "UAE": {
+   "ug_route": "Apply directly to each university",
+   "ug_fee": "Application fees vary (e.g. Heriot-Watt Dubai AED 525)",
+   "ug_deadline": "Most universities admit in autumn and spring",
+   "tuition": "Many Dubai universities are branch campuses of UK, Australian or Indian universities; check that the degree is recognised where you want to work",
+   "src": "https://gulfnews.com/uae/indian-students-top-dubais-global-intake-at-43-pakistanis-at-6-1.500190286"
   }
  }
 }

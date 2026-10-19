@@ -298,21 +298,24 @@ def prose(lang, slug):
 import json as _json
 UDATA = _json.load(open(os.path.join(os.path.dirname(__file__), "data", "universities.json"), encoding="utf-8"))
 UT = {
- "en": dict(title="University finder", desc="Application fees, deadlines, scholarships and ways to talk to current students at 35 universities in the UK, Germany, Sweden and the USA.",
-   h1="University finder", intro="Fees, deadlines and scholarships for 35 universities, with links to talk to current students. Every figure links to the official page it came from. Always check it there before you apply.",
+ "en": dict(title="University finder", desc="Application fees, deadlines, scholarships and ways to talk to current students at 49 universities in the UK, Germany, Sweden, the USA, Canada, Australia and the UAE.",
+   h1="University finder", intro="Fees, deadlines, scholarships and QS rankings for 49 universities in seven countries, with links to talk to current students. Every figure links to the official page it came from. Always check it there before you apply.",
    search="Search a university or city", all="All countries", fee="Postgraduate application fee", deadline="Postgraduate deadlines", tuition="Example tuition", sch="Scholarships", chat="Talk to current students", soc="Indian / Bengali / Bangladeshi societies", ug="Undergraduate", phd="PhD", src="Source", web="Website", none="No university matches. Try another name or country.",
    amb_h="Student ambassadors", amb="Each university's official chat service lets you message current students, and you can usually choose students from India or Bangladesh. We don't publish students' personal details. Are you a Bengali student abroad? Volunteer as a BiswaPath ambassador on the contribute page.",
-   checked="Checked 19 October 2026", lang_note="", chat_link="Open the chat page", src_link="Official page"),
- "bn": dict(title="বিশ্ববিদ্যালয় খুঁজুন", desc="UK, জার্মানি, সুইডেন ও USA-র ৩৫টি বিশ্ববিদ্যালয়ের আবেদন ফি, ডেডলাইন, স্কলারশিপ আর বর্তমান ছাত্রছাত্রীদের সঙ্গে কথা বলার উপায়।",
-   h1="বিশ্ববিদ্যালয় খুঁজুন", intro="৩৫টি বিশ্ববিদ্যালয়ের ফি, ডেডলাইন আর স্কলারশিপ, সঙ্গে বর্তমান ছাত্রছাত্রীদের সঙ্গে কথা বলার লিংক। প্রতিটি তথ্যের পাশে অফিসিয়াল সূত্রের লিংক আছে। আবেদনের আগে সেখানে অবশ্যই মিলিয়ে নিন।",
+   checked="Checked 19 October 2026", lang_note="", chat_link="Open the chat page", src_link="Official page", qs="QS World University Rankings 2027"),
+ "bn": dict(title="বিশ্ববিদ্যালয় খুঁজুন", desc="UK, জার্মানি, সুইডেন, USA, কানাডা, অস্ট্রেলিয়া ও UAE-র ৪৯টি বিশ্ববিদ্যালয়ের আবেদন ফি, ডেডলাইন, স্কলারশিপ আর বর্তমান ছাত্রছাত্রীদের সঙ্গে কথা বলার উপায়।",
+   h1="বিশ্ববিদ্যালয় খুঁজুন", intro="সাতটা দেশের ৪৯টি বিশ্ববিদ্যালয়ের ফি, ডেডলাইন, স্কলারশিপ আর QS র‍্যাংকিং, সঙ্গে বর্তমান ছাত্রছাত্রীদের সঙ্গে কথা বলার লিংক। প্রতিটি তথ্যের পাশে অফিসিয়াল সূত্রের লিংক আছে। আবেদনের আগে সেখানে অবশ্যই মিলিয়ে নিন।",
    search="বিশ্ববিদ্যালয় বা শহরের নাম লিখুন", all="সব দেশ", fee="পোস্টগ্র্যাজুয়েট আবেদন ফি", deadline="পোস্টগ্র্যাজুয়েট ডেডলাইন", tuition="টিউশন ফি-র উদাহরণ", sch="স্কলারশিপ", chat="বর্তমান ছাত্রছাত্রীদের সঙ্গে কথা বলুন", soc="ভারতীয় / বাঙালি / বাংলাদেশি সোসাইটি", ug="আন্ডারগ্র্যাজুয়েট", phd="PhD", src="সূত্র", web="ওয়েবসাইট", none="কোনো বিশ্ববিদ্যালয় মেলেনি। অন্য নাম বা দেশ দিয়ে চেষ্টা করুন।",
    amb_h="স্টুডেন্ট অ্যাম্বাসেডর", amb="প্রতিটি বিশ্ববিদ্যালয়ের অফিসিয়াল চ্যাট সার্ভিসে বর্তমান ছাত্রছাত্রীদের মেসেজ করা যায়, আর সাধারণত ভারত বা বাংলাদেশের ছাত্রছাত্রী বেছে নেওয়া যায়। আমরা কারও ব্যক্তিগত তথ্য প্রকাশ করি না। আপনি কি বিদেশে পড়া বাঙালি ছাত্র? যুক্ত হোন পেজে বিশ্বপাঠ অ্যাম্বাসেডর হিসেবে নাম দিন।",
-   chat_link="চ্যাট পেজ খুলুন", src_link="অফিসিয়াল পেজ", checked="যাচাই: ১৯ অক্টোবর ২০২৬", lang_note='<p class="updated">বিশ্ববিদ্যালয়ের তথ্যগুলো ইংরেজিতে দেওয়া হয়েছে, যাতে অফিসিয়াল পেজের সঙ্গে সহজে মেলানো যায়।</p>'),
+   chat_link="চ্যাট পেজ খুলুন", src_link="অফিসিয়াল পেজ", qs="QS World University Rankings 2027", checked="যাচাই: ১৯ অক্টোবর ২০২৬", lang_note='<p class="updated">বিশ্ববিদ্যালয়ের তথ্যগুলো ইংরেজিতে দেওয়া হয়েছে, যাতে অফিসিয়াল পেজের সঙ্গে সহজে মেলানো যায়।</p>'),
 }
 PHD = {"UK": "Funded PhDs (studentships) are listed on each university's research pages and on FindAPhD; most funding deadlines fall December–March.",
        "Germany": "PhDs are often paid research posts; search the DAAD PhD database and university job pages.",
        "Sweden": "PhD places are paid jobs, advertised as vacancies on university websites.",
-       "USA": "PhD offers usually include tuition and a stipend; most applications close in December."}
+       "USA": "PhD offers usually include tuition and a stipend; most applications close in December.",
+       "Canada": "Most PhDs are funded through a supervisor or department package; contact potential supervisors early.",
+       "Australia": "Research degrees (MPhil/PhD) are funded by university and government scholarships; contact a supervisor first.",
+       "UAE": "Research universities such as Khalifa University and UAEU offer funded PhD places; check each university."}
 
 def universities(lang):
     t = UT[lang]; pre = "" if lang == "en" else "/bn"
@@ -322,7 +325,7 @@ def universities(lang):
 <p>{t['intro']}</p>{t['lang_note']}<p><a href="{pre}/education-systems/">{'How do school and degree stages compare between countries?' if lang=='en' else 'বিভিন্ন দেশে স্কুল আর ডিগ্রির ধাপ কীভাবে মেলে?'}</a></p>
 <p><a href="/downloads/BiswaPath_University_Guide_2027.xlsx" download>{'Download the full list as an Excel file' if lang=='en' else 'পুরো তালিকা Excel ফাইল হিসেবে ডাউনলোড করুন'}</a></p>
 <div class="ufilters"><input id="uq" type="search" placeholder="{t['search']}" aria-label="{t['search']}">
-<select id="uc" aria-label="{t['all']}"><option value="">{t['all']}</option><option>UK</option><option>Germany</option><option>Sweden</option><option>USA</option></select></div>
+<select id="uc" aria-label="{t['all']}"><option value="">{t['all']}</option><option>UK</option><option>Germany</option><option>Sweden</option><option>USA</option><option>Canada</option><option>Australia</option><option>UAE</option></select></div>
 <div id="ulist"></div>
 <h2>{t['amb_h']}</h2><p>{t['amb']}</p><p><a class="btn" href="{pre}/contribute/">{'Volunteer as an ambassador' if lang=='en' else 'অ্যাম্বাসেডর হিসেবে নাম দিন'}</a></p>
 <p class="updated">{t['checked']}</p>

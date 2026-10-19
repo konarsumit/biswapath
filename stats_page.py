@@ -16,6 +16,14 @@ SRC = {
  "icef": ("ICEF Monitor: outbound students from Bangladesh, OECD data (November 2025)", "https://monitor.icef.com/2025/11/the-economic-indicators-driving-outbound-student-mobility-from-bangladesh-indonesia-nepal-and-vietnam/"),
  "tbs": ("TBS News: why UK universities are restricting Bangladeshi and Pakistani recruitment (December 2025)", "https://www.tbsnews.net/explainer/why-are-uk-universities-restricting-recruitment-bangladeshi-pakistani-students-1302001"),
  "the": ("Times Higher Education: Asian international students shift to tech and health courses (July 2025)", "https://www.timeshighereducation.com/node/738245"),
+ "mea_annex": ("Ministry of External Affairs: Data on Indian students abroad, as on 1 January 2025 (Annexure I)", "https://www.mea.gov.in/Images/CPV/557-en-01-04-12-2025.pdf"),
+ "bt": ("Business Today: fewer Indian students to the US, UK and Canada; Russia and Bangladesh gain (July 2025)", "https://www.businesstoday.in/amp/nri/study/story/india-sees-sharp-fall-in-students-heading-to-us-uk-canada-russia-and-bangladesh-gain-486434-2025-07-26"),
+ "cn": ("The Tribune: Indian embassy advisory on studying medicine in China (September 2022)", "https://www.tribuneindia.com/news/nation/india-issues-advisory-outlining-risks-for-students-planning-to-study-medicine-in-china-430391/amp"),
+ "jp": ("The Week: language barrier discourages student exchange between India and Japan (December 2025)", "https://www.theweek.in/news/india/2025/12/13/language-barrier-discourages-student-exchange-between-india-and-japan.amp.html"),
+ "sg": ("Ministry of Education Singapore: parliamentary reply on the Tuition Grant for international students (April 2024)", "https://www.moe.gov.sg/news/parliamentary-replies/20240402-public-benefit-of-the-tuition-grant-scheme-for-is"),
+ "khda": ("Gulf News: Indian students are 43% of Dubai's international intake (KHDA, 2024–25)", "https://gulfnews.com/uae/indian-students-top-dubais-global-intake-at-43-pakistanis-at-6-1.500190286"),
+ "qs27": ("QS Top Universities: the world's top 100 universities (QS 2027)", "https://www.topuniversities.com/student-info/choosing-university/worlds-top-100-universities"),
+ "au": ("Ardent Overseas: Australia student visa rules 2026 (confirm on immi.homeaffairs.gov.au)", "https://ardentoverseas.com/study-in-australia/student-visa/"),
  "ls": ("Lok Sabha Starred Question 84, 29 July 2024: students going abroad (national totals only)", "https://sabrangindia.in/wp-content/uploads/2024/08/loksabhaquestions_Students-Migration.pdf"),
 }
 ORDER = list(SRC)
@@ -56,6 +64,19 @@ def content(lang):
  ["UK", "<b>82,523</b> study visas in the year to June 2026 — 23% of all, down 16% [ho]", "Visas granted to main applicants. Indians also received 64,495 Graduate-visa extensions [ho]."],
  ["Germany", "<b>69,816</b> in winter semester 2025/26, a record, up 17.5% [pie]", "Students enrolled at universities; India is Germany's largest group of foreign students."],
 ], "Indian students in three BiswaPath countries")}
+<h2 id="other">Other destinations, and why some are small</h2>
+<p>Indian students by country on 1 January 2025, from the Ministry of External Affairs [mea_annex]:</p>
+{table(["Country", "Indian students", "Why students go — or don't"], [
+ ["Canada", "4,27,085", "Largest destination, but new arrivals fell about 41% in 2024 as Canada capped study permits and relations with India worsened [bt]."],
+ ["UAE", "2,53,832", "Close to home, with branch campuses of UK, Australian and Indian universities. This figure is far above the roughly 18,000 Indians among Dubai's 42,026 university students in 2024–25, so it probably also counts many students from Indian families already living in the UAE [khda]."],
+ ["Australia", "1,96,108", "Post-study work rights and English-taught courses; the visa fee is now AUD 2,500 (from 1 July 2026) and you must show AUD 29,710 a year for living costs [au]."],
+ ["Singapore", "33,250", "Two of Asia's best universities (NUS 10th and NTU 12th in QS 2027) but few places and high fees [qs27]. A Tuition Grant lowers fees but requires three years' work in Singapore after graduating [sg]."],
+ ["Russia", "27,222", "Mostly medicine (MBBS) at lower cost than private medical colleges in India; new arrivals rose from 25,503 in 2023 to 31,444 in 2024 [bt]."],
+ ["Kyrgyzstan / Georgia", "16,550 / 16,020", "Also mainly medicine."],
+ ["China", "5,339", "Once a major MBBS destination; over 23,000 Indians were enrolled in 2022, mostly medics, but Covid visa bans left many stuck at home. India's embassy warned that clinical training is in Chinese and that only 16% of graduates from China's 45 approved medical schools passed India's licensing exam (2015–21) [cn]."],
+ ["Japan", "3,441", "Excellent, low-fee universities (University of Tokyo 39th in QS 2027), but few English-taught degrees — language is the main barrier [jp] [qs27]."],
+], "Indian students in other countries, 1 January 2025")}
+<p>For medicine abroad, check the National Medical Commission's rules before you choose: they decide whether a foreign MBBS lets you practise in India.</p>
 <h2 id="bangladesh">Bangladesh</h2>
 <p>At least <b>49,151</b> Bangladeshi students were abroad in 2022 (UNESCO), three times the 2008 figure; OECD data gives about <b>52,800</b> [unesco] [icef]. The three largest destinations in 2022: [unesco]</p>
 {bars(BD_DEST, lang, num, 11157)}
@@ -83,6 +104,19 @@ def content(lang):
  ["UK", "জুন ২০২৬ পর্যন্ত এক বছরে <b>82,523</b>টি স্টাডি ভিসা — মোটের ২৩%, ১৬% কম [ho]", "মূল আবেদনকারীদের দেওয়া ভিসা। ভারতীয়রা 64,495টি Graduate-ভিসা এক্সটেনশনও পেয়েছেন [ho]।"],
  ["জার্মানি", "শীতকালীন সেমেস্টার ২০২৫/২৬-এ রেকর্ড <b>69,816</b>, ১৭.৫% বেশি [pie]", "বিশ্ববিদ্যালয়ে ভর্তি ছাত্র; জার্মানিতে বিদেশি ছাত্রদের মধ্যে ভারতীয়রাই সবচেয়ে বেশি।"],
 ], "BiswaPath-এর তিনটে দেশে ভারতীয় ছাত্রছাত্রী")}
+<h2 id="other">অন্য দেশ, আর কেন কয়েকটায় কম যায়</h2>
+<p>১ জানুয়ারি ২০২৫-এ দেশভিত্তিক ভারতীয় ছাত্রছাত্রী, বিদেশ মন্ত্রকের হিসেবে [mea_annex]:</p>
+{table(["দেশ", "ভারতীয় ছাত্রছাত্রী", "কেন যায় — বা যায় না"], [
+ ["কানাডা", "4,27,085", "সবচেয়ে বড় গন্তব্য, কিন্তু ২০২৪-এ নতুন যাওয়া প্রায় ৪১% কমেছে — কানাডা স্টাডি পারমিটে সীমা টেনেছে আর ভারতের সঙ্গে সম্পর্ক খারাপ হয়েছে [bt]।"],
+ ["UAE", "2,53,832", "কাছে, আর UK, অস্ট্রেলিয়া ও ভারতের বিশ্ববিদ্যালয়ের শাখা ক্যাম্পাস আছে। ২০২৪–২৫-এ দুবাইয়ের 42,026 জন বিশ্ববিদ্যালয়-ছাত্রের মধ্যে ভারতীয় প্রায় ১৮,০০০; তাই এই সংখ্যায় সম্ভবত UAE-তে আগে থেকেই থাকা ভারতীয় পরিবারের অনেক ছাত্রছাত্রীও ধরা আছে [khda]।"],
+ ["অস্ট্রেলিয়া", "1,96,108", "পাসের পর কাজের সুযোগ আর ইংরেজিতে কোর্স; ভিসা ফি এখন AUD 2,500 (১ জুলাই ২০২৬ থেকে), আর থাকার খরচ বাবদ বছরে AUD 29,710 দেখাতে হয় [au]।"],
+ ["সিঙ্গাপুর", "33,250", "এশিয়ার সেরা দুটো বিশ্ববিদ্যালয় (QS 2027-এ NUS ১০, NTU ১২), কিন্তু আসন কম আর ফি বেশি [qs27]। Tuition Grant নিলে ফি কমে, তবে পাসের পর সিঙ্গাপুরে তিন বছর কাজ করতে হয় [sg]।"],
+ ["রাশিয়া", "27,222", "বেশিরভাগ মেডিসিন (MBBS), ভারতের বেসরকারি মেডিক্যাল কলেজের চেয়ে কম খরচে; নতুন যাওয়া ২০২৩-এ 25,503 থেকে ২০২৪-এ 31,444 [bt]।"],
+ ["কিরগিজস্তান / জর্জিয়া", "16,550 / 16,020", "এখানেও মূলত মেডিসিন।"],
+ ["চীন", "5,339", "একসময় MBBS-এর বড় গন্তব্য ছিল; ২০২২-এ ২৩,০০০-এর বেশি ভারতীয় ভর্তি ছিল, বেশিরভাগ ডাক্তারি, কিন্তু কোভিডের ভিসা নিষেধাজ্ঞায় অনেকে দেশে আটকে ছিল। ভারতীয় দূতাবাস সতর্ক করেছে যে ক্লিনিক্যাল পড়াশোনা চীনা ভাষায়, আর চীনের ৪৫টি অনুমোদিত মেডিক্যাল স্কুলের মাত্র ১৬% গ্র্যাজুয়েট ভারতের লাইসেন্স পরীক্ষায় পাস করেছেন (২০১৫–২১) [cn]।"],
+ ["জাপান", "3,441", "দারুণ, কম ফি-র বিশ্ববিদ্যালয় (QS 2027-এ University of Tokyo ৩৯), কিন্তু ইংরেজিতে ডিগ্রি কম — মূল বাধা ভাষা [jp] [qs27]।"],
+], "অন্য দেশে ভারতীয় ছাত্রছাত্রী, ১ জানুয়ারি ২০২৫")}
+<p>বিদেশে মেডিসিন পড়ার আগে National Medical Commission-এর নিয়ম দেখে নিন: বিদেশের MBBS দিয়ে ভারতে প্র্যাকটিস করা যাবে কি না, তা তারাই ঠিক করে।</p>
 <h2 id="bangladesh">বাংলাদেশ</h2>
 <p>২০২২-এ অন্তত <b>49,151</b> জন বাংলাদেশি ছাত্রছাত্রী বিদেশে ছিল (UNESCO), ২০০৮-এর তিন গুণ; OECD-র হিসেবে প্রায় <b>52,800</b> [unesco] [icef]। ২০২২-এর সবচেয়ে বড় তিনটে গন্তব্য: [unesco]</p>
 {bars(BD_DEST, lang, num, 11157)}

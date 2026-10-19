@@ -5,7 +5,7 @@ import re
 CHECKED = {"en": "19 October 2026", "bn": "১৯ অক্টোবর ২০২৬"}
 
 # Rates derived from ECB euro reference rates of 16 Oct 2026 (1 EUR = 106.8640 INR = 1.1253 USD = 0.84385 GBP = 11.1450 SEK)
-RATE = {"£": 126.6, "$": 95.0, "€": 106.9, "SEK": 9.59}
+RATE = {"£": 126.6, "$": 95.0, "€": 106.9, "SEK": 9.59, "CAD": 67.45, "AUD": 66.32, "AED": 25.87}
 
 def inr(v, lang):
     lakh = "lakh" if lang == "en" else "লাখ"
@@ -21,7 +21,7 @@ def M(lang):
     """returns a function m(amount, cur, suffix='') -> '£1,529 (≈ ₹1.94 lakh)'"""
     def m(a, cur, suffix=""):
         n = f"{a:,.2f}" if a != int(a) else f"{int(a):,}"
-        loc = f"SEK {n}" if cur == "SEK" else f"{cur}{n}"
+        loc = f"{cur} {n}" if cur in ("SEK", "CAD", "AUD", "AED") else f"{cur}{n}"
         return f'{loc}{suffix} <span class="inr">(≈ {inr(a * RATE[cur], lang)})</span>'
     return m
 
@@ -55,6 +55,13 @@ SRC = {
  "fulbright": ("IndiaScholarships: Fulbright-Nehru Master's Fellowships (official site: usief.org.in)", "https://www.indiascholarships.in/scholarships/fulbright-nehru-masters-fellowships"),
  "madad": ("Consulate General of India, Chicago: student registration on the MADAD portal", "https://cgichicago.gov.in/page/student-registration-at-madad-portal"),
  "qs": ("QS Top Universities: the world's top 100 universities (QS World University Rankings 2027)", "https://www.topuniversities.com/student-info/choosing-university/worlds-top-100-universities"),
+ "ca_funds": ("CIC News: Canada raises study permit proof of funds from 1 September 2026", "https://www.cicnews.com/2026/08/canada-hikes-funds-needed-by-study-permit-applicants-0879805.html/amp"),
+ "ca_rules": ("IDP: Canada visa rules for international students in 2026 (confirm on canada.ca)", "https://www.idp.com/india/blog/visa-rules-for-international-students-canada/"),
+ "au_visa": ("Ardent Overseas: Australia student visa rules 2026 (confirm on immi.homeaffairs.gov.au)", "https://ardentoverseas.com/study-in-australia/student-visa/"),
+ "au_485": ("AHC Lawyers: Temporary Graduate visa (subclass 485) streams (January 2026)", "https://www.ahclawyers.com/news-articles/26/01/30/which-temporary-graduate-visa-subclass-485-stream-is-for-you"),
+ "uae_visa": ("Gulf News: UAE student visa rules for new applicants and renewals", "https://gulfnews.com/uae/government/uae-student-visa-rules-for-new-applicants-renewals-outlined-1.102495102"),
+ "uae_qs": ("Gulf News: UAE universities in the QS World University Rankings 2027", "https://gulfnews.com/amp/story/uae%2Feducation%2Fuae-universities-hit-record-qs-rankings-2027-eight-institutions-achieve-all-time-highs-1.500578559"),
+ "ecb19": ("European Central Bank: euro reference rates, 19 October 2026 (CAD, AUD)", "https://www.ecb.europa.eu/stats/policy_and_exchange_rates/euro_reference_exchange_rates/html/index.en.html"),
  "su": ("Stockholm University: ranked 167 in the QS ranking (22 June 2026)", "https://www.su.se/english/news/articles/2026-06-22-stockholm-university-ranks-167-in-the-qs-ranking"),
 }
 ORDER = list(SRC)
@@ -74,8 +81,12 @@ QS = [
  ("University of Sheffield", "UK", "=82"), ("KTH Royal Institute of Technology", "Sweden", "=82"), ("Durham University", "UK", "85"),
  ("Heidelberg University", "Germany", "86"), ("Uppsala University", "Sweden", "=87"), ("University of Nottingham", "UK", "=97"),
  ("Purdue University", "USA", "=100"), ("Stockholm University", "Sweden", "167 [su]"),
+ ("UNSW Sydney", "Australia", "19"), ("University of Melbourne", "Australia", "=22"), ("University of Sydney", "Australia", "28"),
+ ("Australian National University", "Australia", "29"), ("McGill University", "Canada", "30"), ("Monash University", "Australia", "31"),
+ ("University of Toronto", "Canada", "32"), ("University of British Columbia", "Canada", "=45"), ("University of Alberta", "Canada", "96"),
+ ("Khalifa University", "UAE", "147 [uae_qs]"), ("United Arab Emirates University", "UAE", "217 [uae_qs]"), ("American University of Sharjah", "UAE", "258 [uae_qs]"),
 ]
-QS_OUT = "University of Southampton, Queen Mary University of London, Newcastle University, Coventry University, RWTH Aachen, TU Berlin, Chalmers"
+QS_OUT = "University of Southampton, Queen Mary University of London, Newcastle University, Coventry University, RWTH Aachen, TU Berlin, Chalmers, University of Waterloo"
 
 def sections(lang):
     m = M(lang); E = lang == "en"
@@ -101,23 +112,33 @@ def sections(lang):
      ("How much does the student visa cost?" if E else "স্টুডেন্ট ভিসার খরচ কত?",
       (f"<ul><li><b>UK:</b> {m(558,'£')} from outside the UK [uk_visa], plus the Immigration Health Surcharge of {m(776,'£')} per year of visa (half for any part-year under 6 months) [uk_ihs]. A one-year master's visa usually runs about 16 months, so expect roughly {m(1164,'£')} surcharge. You can apply up to 6 months before the course starts [uk_visa].</li>"
        f"<li><b>USA:</b> visa (MRV) fee {m(185,'$')} + SEVIS I-901 fee {m(350,'$')}; some consulates have started charging a {m(250,'$')} visa integrity fee on issue [us_fees].</li>"
+       f"<li><b>Canada:</b> study permit {m(235,'CAD')} including biometrics [ca_rules].</li>"
+       f"<li><b>Australia:</b> {m(2500,'AUD')} for the main applicant from 1 July 2026 [au_visa].</li>"
+       f"<li><b>UAE:</b> student residence permit about {m(2500,'AED')} plus {m(500,'AED')}, arranged through the university [uae_visa].</li>"
        f"<li><b>Germany:</b> national visa about {m(75,'€')} [de_ins].</li>"
        f"<li><b>Sweden:</b> pay the fee shown by Migrationsverket when you apply online.</li></ul>")
       if E else
       (f"<ul><li><b>UK:</b> UK-র বাইরে থেকে {m(558,'£')} [uk_visa], সঙ্গে Immigration Health Surcharge, ভিসার প্রতি বছরের জন্য {m(776,'£')} (৬ মাসের কম অংশের জন্য অর্ধেক) [uk_ihs]। এক বছরের মাস্টার্সের ভিসা সাধারণত প্রায় ১৬ মাসের হয়, তাই surcharge মোটামুটি {m(1164,'£')}। কোর্স শুরুর ৬ মাস আগে থেকে আবেদন করা যায় [uk_visa]।</li>"
        f"<li><b>USA:</b> ভিসা (MRV) ফি {m(185,'$')} + SEVIS I-901 ফি {m(350,'$')}; কিছু কনস্যুলেট ভিসা দেওয়ার সময় {m(250,'$')} visa integrity fee নিতে শুরু করেছে [us_fees]।</li>"
+       f"<li><b>কানাডা:</b> study permit {m(235,'CAD')}, বায়োমেট্রিক-সহ [ca_rules]।</li>"
+       f"<li><b>অস্ট্রেলিয়া:</b> ১ জুলাই ২০২৬ থেকে মূল আবেদনকারীর {m(2500,'AUD')} [au_visa]।</li>"
+       f"<li><b>UAE:</b> student residence permit মোটামুটি {m(2500,'AED')} আর {m(500,'AED')}, বিশ্ববিদ্যালয়ের মাধ্যমে [uae_visa]।</li>"
        f"<li><b>জার্মানি:</b> ন্যাশনাল ভিসা মোটামুটি {m(75,'€')} [de_ins]।</li>"
        f"<li><b>সুইডেন:</b> অনলাইনে আবেদনের সময় Migrationsverket যে ফি দেখায়, সেটাই দিতে হয়।</li></ul>")),
      ("How much money must we show for the visa?" if E else "ভিসার জন্য ব্যাংকে কত টাকা দেখাতে হয়?",
       (f"<ul><li><b>UK:</b> the first year's tuition still owed, plus living costs of {m(1529,'£','/month')} in London or {m(1171,'£','/month')} elsewhere, for up to 9 months (maximum {m(13761,'£')} London / {m(10539,'£')} elsewhere). The money must sit in the account for 28 days in a row, ending no more than 31 days before you apply [uk_money].</li>"
        f"<li><b>Germany:</b> usually a blocked account of {m(11904,'€','/year')}, i.e. {m(992,'€','/month')} for 2026 [de_block].</li>"
        f"<li><b>Sweden:</b> at least {m(10656,'SEK','/month')} for the whole permit (2026 applications) [se_money].</li>"
-       f"<li><b>USA:</b> the full first-year cost on your I-20, set by the university (see the UIUC example below).</li></ul>")
+       f"<li><b>USA:</b> the full first-year cost on your I-20, set by the university (see the UIUC example below).</li>"
+       f"<li><b>Canada:</b> first-year tuition and travel, plus {m(23448,'CAD','/year')} living costs for a single student outside Quebec (applications from 1 September 2026) [ca_funds].</li>"
+       f"<li><b>Australia:</b> {m(29710,'AUD','/year')} living costs, plus travel and first-year tuition [au_visa].</li></ul>")
       if E else
       (f"<ul><li><b>UK:</b> প্রথম বছরের বাকি টিউশন ফি, সঙ্গে থাকার খরচ: লন্ডনে {m(1529,'£','/মাস')}, অন্যত্র {m(1171,'£','/মাস')}, সর্বোচ্চ ৯ মাস (লন্ডনে সর্বোচ্চ {m(13761,'£')}, অন্যত্র {m(10539,'£')})। টাকাটা টানা ২৮ দিন অ্যাকাউন্টে থাকতে হবে, আর সেই সময় আবেদনের ৩১ দিনের মধ্যে শেষ হতে হবে [uk_money]।</li>"
        f"<li><b>জার্মানি:</b> সাধারণত blocked account-এ {m(11904,'€','/বছর')}, মানে ২০২৬-এ {m(992,'€','/মাস')} [de_block]।</li>"
        f"<li><b>সুইডেন:</b> পুরো পারমিটের মেয়াদের জন্য অন্তত {m(10656,'SEK','/মাস')} (২০২৬-এর আবেদন) [se_money]।</li>"
-       f"<li><b>USA:</b> I-20-তে বিশ্ববিদ্যালয় প্রথম বছরের যে পুরো খরচ লেখে, সেটা (নিচে UIUC-র উদাহরণ দেখুন)।</li></ul>")),
+       f"<li><b>USA:</b> I-20-তে বিশ্ববিদ্যালয় প্রথম বছরের যে পুরো খরচ লেখে, সেটা (নিচে UIUC-র উদাহরণ দেখুন)।</li>"
+       f"<li><b>কানাডা:</b> প্রথম বছরের টিউশন আর যাতায়াত, সঙ্গে কুইবেকের বাইরে একা ছাত্রের থাকার খরচ {m(23448,'CAD','/বছর')} (১ সেপ্টেম্বর ২০২৬ থেকে আবেদনে) [ca_funds]।</li>"
+       f"<li><b>অস্ট্রেলিয়া:</b> থাকার খরচ {m(29710,'AUD','/বছর')}, সঙ্গে যাতায়াত আর প্রথম বছরের টিউশন [au_visa]।</li></ul>")),
     ]))
     # ---------------- 2. Costs ----------------
     S.append(("costs", "Costs: tuition, rent and monthly expenses" if E else "খরচ: টিউশন, ভাড়া আর মাসিক খরচ", [
@@ -126,13 +147,17 @@ def sections(lang):
        f"<ul><li><b>UK:</b> {m(1529,'£')} London / {m(1171,'£')} elsewhere [uk_money].</li>"
        f"<li><b>Germany:</b> {m(992,'€')} [de_block]. Public health insurance for students under 30 is roughly {m(140,'€')}–{m(160,'€')} of that [de_ins].</li>"
        f"<li><b>Sweden:</b> Uppsala University's sample budget is {m(9500,'SEK')}–{m(11600,'SEK')}: housing {m(4000,'SEK')}–{m(6500,'SEK')}, food {m(3400,'SEK')}, transport {m(500,'SEK')}, phone {m(300,'SEK')} [se_budget].</li>"
-       f"<li><b>USA:</b> UIUC estimates room and board at {m(19253,'$')} for 12 months (about {m(1604,'$','/month')}) [us_cost]. Big coastal cities cost more.</li></ul>")
+       f"<li><b>USA:</b> UIUC estimates room and board at {m(19253,'$')} for 12 months (about {m(1604,'$','/month')}) [us_cost]. Big coastal cities cost more.</li>"
+       f"<li><b>Canada:</b> the visa minimum works out at about {m(1954,'CAD','/month')} [ca_funds].</li>"
+       f"<li><b>Australia:</b> the visa minimum works out at about {m(2476,'AUD','/month')} [au_visa].</li></ul>")
       if E else
       (f"ওপরের ভিসার অঙ্কগুলো সরকারি ন্যূনতম, আর সাধারণ ছাত্রের মাসিক বাজেটের ভালো আন্দাজ দেয়:"
        f"<ul><li><b>UK:</b> লন্ডনে {m(1529,'£')}, অন্যত্র {m(1171,'£')} [uk_money]।</li>"
        f"<li><b>জার্মানি:</b> {m(992,'€')} [de_block]। ৩০ বছরের কম বয়সী ছাত্রদের সরকারি হেলথ ইনশিওরেন্স এর মধ্যে মোটামুটি {m(140,'€')}–{m(160,'€')} [de_ins]।</li>"
        f"<li><b>সুইডেন:</b> Uppsala University-র নমুনা বাজেট {m(9500,'SEK')}–{m(11600,'SEK')}: থাকা {m(4000,'SEK')}–{m(6500,'SEK')}, খাওয়া {m(3400,'SEK')}, যাতায়াত {m(500,'SEK')}, ফোন {m(300,'SEK')} [se_budget]।</li>"
-       f"<li><b>USA:</b> UIUC-র হিসেবে ১২ মাসের থাকা-খাওয়া {m(19253,'$')} (মাসে প্রায় {m(1604,'$')}) [us_cost]। সমুদ্র-তীরের বড় শহরে খরচ বেশি।</li></ul>")),
+       f"<li><b>USA:</b> UIUC-র হিসেবে ১২ মাসের থাকা-খাওয়া {m(19253,'$')} (মাসে প্রায় {m(1604,'$')}) [us_cost]। সমুদ্র-তীরের বড় শহরে খরচ বেশি।</li>"
+       f"<li><b>কানাডা:</b> ভিসার ন্যূনতম হিসেবে মাসে প্রায় {m(1954,'CAD')} [ca_funds]।</li>"
+       f"<li><b>অস্ট্রেলিয়া:</b> ভিসার ন্যূনতম হিসেবে মাসে প্রায় {m(2476,'AUD')} [au_visa]।</li></ul>")),
      ("How much is rent?" if E else "বাড়িভাড়া কত?",
       (f"<ul><li><b>London:</b> a university-owned en-suite room averaged {m(226,'£','/week')} on a 41-week contract; comparable private halls {m(341,'£','/week')} on 50 weeks (2024 survey) [uk_rent]. Outside London rents are usually much lower — check each university's accommodation page.</li>"
        f"<li><b>Germany</b> (shared-flat room, 2025): average {m(505,'€','/month')}; Munich {m(790,'€')}, Heidelberg {m(633,'€')}, Berlin {m(624,'€')}, Aachen {m(483,'€')} [de_rent].</li>"
@@ -181,24 +206,36 @@ def sections(lang):
       (f"<ul><li><b>UK:</b> up to 20 hours a week in term time on a degree-level course; full time in official vacations [uk_work].</li>"
        f"<li><b>Germany:</b> 140 full days or 280 half days a year, or up to 20 hours a week in the lecture period; student-assistant jobs at the university are not limited [de_work].</li>"
        f"<li><b>Sweden:</b> new rule — for bachelor's and master's permits granted from 11 June 2026, up to 15 hours a week during semesters; no limit in June, July and August [se_money].</li>"
-       f"<li><b>USA (F-1):</b> on-campus jobs only, up to 20 hours a week in term and full time in vacations [us_work].</li></ul>"
+       f"<li><b>USA (F-1):</b> on-campus jobs only, up to 20 hours a week in term and full time in vacations [us_work].</li>"
+       f"<li><b>Canada:</b> up to 24 hours a week off campus during term [ca_rules].</li>"
+       f"<li><b>Australia:</b> 48 hours a fortnight during term, unlimited in scheduled breaks; no limit for research master's and PhD [au_visa].</li>"
+       f"<li><b>UAE:</b> on- or off-campus work needs the university's permission and a work permit [uae_visa].</li></ul>"
        f"Do not plan to pay tuition from part-time work: the visa needs the money in the bank before you go.")
       if E else
       (f"<ul><li><b>UK:</b> ডিগ্রি-স্তরের কোর্সে টার্মের সময় সপ্তাহে সর্বোচ্চ ২০ ঘণ্টা; অফিসিয়াল ছুটিতে ফুল-টাইম [uk_work]।</li>"
        f"<li><b>জার্মানি:</b> বছরে ১৪০ পুরো দিন বা ২৮০ অর্ধেক দিন, অথবা ক্লাস চলার সময় সপ্তাহে সর্বোচ্চ ২০ ঘণ্টা; বিশ্ববিদ্যালয়ের student-assistant কাজে সীমা নেই [de_work]।</li>"
        f"<li><b>সুইডেন:</b> নতুন নিয়ম — ১১ জুন ২০২৬ থেকে দেওয়া ব্যাচেলর/মাস্টার্স পারমিটে সেমেস্টারে সপ্তাহে সর্বোচ্চ ১৫ ঘণ্টা; জুন, জুলাই, আগস্টে সীমা নেই [se_money]।</li>"
-       f"<li><b>USA (F-1):</b> শুধু ক্যাম্পাসের ভেতরের কাজ, টার্মে সপ্তাহে সর্বোচ্চ ২০ ঘণ্টা, ছুটিতে ফুল-টাইম [us_work]।</li></ul>"
+       f"<li><b>USA (F-1):</b> শুধু ক্যাম্পাসের ভেতরের কাজ, টার্মে সপ্তাহে সর্বোচ্চ ২০ ঘণ্টা, ছুটিতে ফুল-টাইম [us_work]।</li>"
+       f"<li><b>কানাডা:</b> টার্মে ক্যাম্পাসের বাইরে সপ্তাহে সর্বোচ্চ ২৪ ঘণ্টা [ca_rules]।</li>"
+       f"<li><b>অস্ট্রেলিয়া:</b> টার্মে দু-সপ্তাহে ৪৮ ঘণ্টা, ছুটিতে সীমা নেই; রিসার্চ মাস্টার্স আর PhD-তে সীমা নেই [au_visa]।</li>"
+       f"<li><b>UAE:</b> ক্যাম্পাসে বা বাইরে কাজের জন্য বিশ্ববিদ্যালয়ের অনুমতি আর ওয়ার্ক পারমিট লাগে [uae_visa]।</li></ul>"
        f"পার্ট-টাইম কাজ করে টিউশন দেওয়ার পরিকল্পনা করবেন না: ভিসার জন্য যাওয়ার আগেই টাকা ব্যাংকে থাকতে হয়।")),
      ("Can I stay and work after I graduate?" if E else "পাস করার পর কি থেকে কাজ করা যায়?",
       (f"<ul><li><b>UK Graduate visa:</b> 2 years if you apply by 31 December 2026; <b>18 months</b> for bachelor's and master's graduates applying from 1 January 2027; 3 years for PhD graduates [uk_work]. In the year to June 2026, 157,356 Graduate-route extensions were granted [uk_stats].</li>"
        f"<li><b>Germany:</b> up to 18 months to look for a job after graduating [de_work].</li>"
        f"<li><b>Sweden:</b> up to 1 year to look for work (12–18 months after a PhD), if you can support yourself on {m(10656,'SEK','/month')} [se_job].</li>"
-       f"<li><b>USA:</b> 12 months of OPT, plus 24 more months (STEM OPT) for STEM degrees with an E-Verify employer [us_work].</li></ul>")
+       f"<li><b>USA:</b> 12 months of OPT, plus 24 more months (STEM OPT) for STEM degrees with an E-Verify employer [us_work].</li>"
+       f"<li><b>Canada:</b> Post-Graduation Work Permit of up to 3 years; master's graduates get 3 years if the programme lasted at least 8 months [ca_rules].</li>"
+       f"<li><b>Australia:</b> Temporary Graduate visa (485) — 2 years after a bachelor's or coursework master's, 3 years after a research master's or PhD [au_485].</li>"
+       f"<li><b>UAE:</b> no general post-study visa, but top graduates (GPA 3.5+ from an A-rated university, within two years of graduating) can get a 10-year residence visa [uae_visa].</li></ul>")
       if E else
       (f"<ul><li><b>UK Graduate visa:</b> ৩১ ডিসেম্বর ২০২৬-এর মধ্যে আবেদন করলে ২ বছর; ১ জানুয়ারি ২০২৭ থেকে ব্যাচেলর আর মাস্টার্সের জন্য <b>১৮ মাস</b>; PhD-র জন্য ৩ বছর [uk_work]। জুন ২০২৬ পর্যন্ত এক বছরে ১,৫৭,৩৫৬টি Graduate-route এক্সটেনশন দেওয়া হয়েছে [uk_stats]।</li>"
        f"<li><b>জার্মানি:</b> পাস করার পর চাকরি খোঁজার জন্য সর্বোচ্চ ১৮ মাস [de_work]।</li>"
        f"<li><b>সুইডেন:</b> কাজ খোঁজার জন্য সর্বোচ্চ ১ বছর (PhD-র পর ১২–১৮ মাস), যদি মাসে {m(10656,'SEK')} দিয়ে নিজের খরচ চালাতে পারেন [se_job]।</li>"
-       f"<li><b>USA:</b> ১২ মাস OPT, আর STEM ডিগ্রি হলে E-Verify নিয়োগকর্তার সঙ্গে আরও ২৪ মাস (STEM OPT) [us_work]।</li></ul>")),
+       f"<li><b>USA:</b> ১২ মাস OPT, আর STEM ডিগ্রি হলে E-Verify নিয়োগকর্তার সঙ্গে আরও ২৪ মাস (STEM OPT) [us_work]।</li>"
+       f"<li><b>কানাডা:</b> সর্বোচ্চ ৩ বছরের Post-Graduation Work Permit; প্রোগ্রাম অন্তত ৮ মাসের হলে মাস্টার্সে ৩ বছর [ca_rules]।</li>"
+       f"<li><b>অস্ট্রেলিয়া:</b> Temporary Graduate visa (485) — ব্যাচেলর বা কোর্সওয়ার্ক মাস্টার্সের পর ২ বছর, রিসার্চ মাস্টার্স বা PhD-র পর ৩ বছর [au_485]।</li>"
+       f"<li><b>UAE:</b> সাধারণ পোস্ট-স্টাডি ভিসা নেই, তবে সেরা গ্র্যাজুয়েটরা (A-rated বিশ্ববিদ্যালয় থেকে GPA 3.5+, পাসের দু-বছরের মধ্যে) ১০ বছরের রেসিডেন্স ভিসা পেতে পারেন [uae_visa]।</li></ul>")),
     ]))
     # ---------------- 5. Rankings & statistics ----------------
     S.append(("rankings", "QS World Rankings and student statistics" if E else "QS ওয়ার্ল্ড র‍্যাংকিং আর ছাত্রদের পরিসংখ্যান", [
@@ -220,15 +257,19 @@ def sections(lang):
        "<li><b>UK:</b> জুন ২০২৬ পর্যন্ত এক বছরে ৮২,৫২৩টি স্টাডি ভিসা পেয়েছেন ভারতীয় মূল আবেদনকারীরা — মোট ৩,৬৫,৮৬৮-এর ২৩% [uk_stats]।</li>"
        "<li><b>জার্মানি:</b> শীতকালীন সেমেস্টার ২০২৫/২৬-এ রেকর্ড ৬৯,৮১৬ জন ভারতীয় ছাত্র, এক বছরে ১৭.৫% বেশি [de_stats]।</li></ul>"
        "গোনার পদ্ধতি আলাদা (ভিসা দেওয়া বনাম ভর্তি হওয়া ছাত্র), তাই সংখ্যাগুলো সরাসরি তুলনা করা যায় না। বাংলাদেশ আর বিষয়ভিত্তিক হিসেব-সহ আরও: <a href=\"/bn/statistics/\">বিদেশে ছাত্রছাত্রী: সংখ্যার হিসেব</a>।")),
-    ]))
+         ("What about Singapore, Japan, China and Russia?" if E else "সিঙ্গাপুর, জাপান, চীন আর রাশিয়া?",
+      ("Fewer Indian students go there, for different reasons. Singapore (about 33,000) has world-class universities but few places; Russia (about 27,000) is chosen mostly for MBBS; China (about 5,300) fell after Covid visa bans; Japan (about 3,400) is held back mainly by language. Details and sources: <a href=\"/statistics/#other\">Students abroad: the numbers</a>."
+       if E else
+       "সেখানে ভারতীয় ছাত্র কম যায়, আলাদা আলাদা কারণে। সিঙ্গাপুরে (প্রায় ৩৩,০০০) বিশ্বমানের বিশ্ববিদ্যালয় আছে কিন্তু আসন কম; রাশিয়ায় (প্রায় ২৭,০০০) বেশিরভাগ MBBS পড়তে যায়; চীনে (প্রায় ৫,৩০০) কোভিডের ভিসা নিষেধাজ্ঞার পর সংখ্যা কমেছে; জাপানে (প্রায় ৩,৪০০) মূল বাধা ভাষা। বিস্তারিত আর সূত্র: <a href=\"/bn/statistics/#other\">বিদেশে ছাত্রছাত্রী: সংখ্যার হিসেব</a>।")),
+]))
     # ---------------- 6. Safety ----------------
     S.append(("safety", "Safety" if E else "নিরাপত্তা", [
      ("What should my child do in an emergency?" if E else "জরুরি অবস্থায় আমার ছেলে/মেয়ে কী করবে?",
-      ("<ul><li>Emergency numbers: <b>UK 999</b> (or 112; NHS non-emergency 111), <b>Germany 112</b> (police 110), <b>Sweden 112</b>, <b>USA 911</b>.</li>"
+      ("<ul><li>Emergency numbers: <b>UK 999</b> (or 112; NHS non-emergency 111), <b>Germany 112</b> (police 110), <b>Sweden 112</b>, <b>USA and Canada 911</b>, <b>Australia 000</b>, <b>UAE 999</b> (police; ambulance 998).</li>"
        "<li>Save the university's 24-hour security number and the international student office's email on the first day.</li>"
        "<li>Indian students: register on the government's <a href=\"https://www.madad.gov.in/madad/StudentRegistration\" target=\"_blank\" rel=\"noopener\">MADAD portal</a> so the nearest Indian embassy or consulate can reach you [madad]. Bangladeshi students: note the contact details of your Bangladesh High Commission or Embassy.</li></ul>")
       if E else
-      ("<ul><li>জরুরি নম্বর: <b>UK 999</b> (বা 112; NHS-এর জরুরি নয় এমন দরকারে 111), <b>জার্মানি 112</b> (পুলিশ 110), <b>সুইডেন 112</b>, <b>USA 911</b>।</li>"
+      ("<ul><li>জরুরি নম্বর: <b>UK 999</b> (বা 112; NHS-এর জরুরি নয় এমন দরকারে 111), <b>জার্মানি 112</b> (পুলিশ 110), <b>সুইডেন 112</b>, <b>USA আর কানাডা 911</b>, <b>অস্ট্রেলিয়া 000</b>, <b>UAE 999</b> (পুলিশ; অ্যাম্বুলেন্স 998)।</li>"
        "<li>প্রথম দিনেই বিশ্ববিদ্যালয়ের ২৪ ঘণ্টার security নম্বর আর international student office-এর ইমেল ফোনে সেভ করে রাখুন।</li>"
        "<li>ভারতীয় ছাত্ররা সরকারের <a href=\"https://www.madad.gov.in/madad/StudentRegistration\" target=\"_blank\" rel=\"noopener\">MADAD পোর্টালে</a> নাম নথিভুক্ত করুন, যাতে নিকটতম ভারতীয় দূতাবাস বা কনস্যুলেট যোগাযোগ করতে পারে [madad]। বাংলাদেশি ছাত্ররা নিজেদের হাই কমিশন বা দূতাবাসের যোগাযোগের তথ্য রেখে দিন।</li></ul>")),
      ("How do we avoid scams?" if E else "প্রতারণা থেকে কীভাবে বাঁচব?",
@@ -258,26 +299,26 @@ def sections(lang):
 T = {
  "en": dict(title="Questions students and parents ask",
    desc="Costs, monthly expenses, rent, application and visa fees, scholarships, part-time and graduate jobs, QS rankings, statistics and safety for studying in the UK, Germany, Sweden and the USA — with INR estimates and official sources.",
-   intro="Straight answers on money, safety and jobs for studying in the UK, Germany, Sweden and the USA. Every amount is shown in the local currency with an approximate Indian rupee figure. Click a question to open it.",
-   rates="INR estimates use the European Central Bank reference rates of 16 October 2026: £1 ≈ ₹126.6, $1 ≈ ₹95.0, €1 ≈ ₹106.9, 1 SEK ≈ ₹9.59 [ecb]. Your bank's rate will differ, and fees change — always check the official page before paying.",
+   intro="Straight answers on money, safety and jobs for studying in the UK, Germany, Sweden, the USA, Canada, Australia and the UAE. Every amount is shown in the local currency with an approximate Indian rupee figure. Click a question to open it.",
+   rates="INR estimates use the European Central Bank reference rates of 16 October 2026: £1 ≈ ₹126.6, $1 ≈ ₹95.0, €1 ≈ ₹106.9, 1 SEK ≈ ₹9.59 [ecb]; CAD 1 ≈ ₹67.45 and AUD 1 ≈ ₹66.32 use the rates of 19 October 2026 [ecb19]; AED 1 ≈ ₹25.87 (the dirham is fixed to the US dollar). Your bank's rate will differ, and fees change — always check the official page before paying.",
    jump="Jump to", qs_cols=["University", "Country", "QS 2027 rank"],
    qs_note="“=” means a tie. Not in the QS top 100: " + QS_OUT + ". Source: [qs]",
    src_h="Sources", checked="Last checked",
    note_src="Numbers in square brackets refer to these sources. Where we quote a secondary summary, we say so — check the official page before relying on it."),
  "bn": dict(title="ছাত্র আর অভিভাবকদের প্রশ্ন",
    desc="UK, জার্মানি, সুইডেন আর USA-তে পড়ার খরচ, মাসিক খরচ, বাড়িভাড়া, আবেদন ও ভিসা ফি, স্কলারশিপ, পার্ট-টাইম আর পাস করার পরের চাকরি, QS র‍্যাংকিং, পরিসংখ্যান আর নিরাপত্তা — টাকার আনুমানিক হিসেব আর অফিসিয়াল সূত্র-সহ।",
-   intro="UK, জার্মানি, সুইডেন আর USA-তে পড়তে যাওয়ার টাকা, নিরাপত্তা আর চাকরি নিয়ে সোজা উত্তর। প্রতিটা অঙ্ক সেই দেশের মুদ্রায়, সঙ্গে ভারতীয় টাকায় আনুমানিক হিসেব। প্রশ্নে ক্লিক করলে উত্তর খুলবে।",
-   rates="টাকার হিসেব European Central Bank-এর ১৬ অক্টোবর ২০২৬-এর রেট ধরে: £1 ≈ ₹126.6, $1 ≈ ₹95.0, €1 ≈ ₹106.9, 1 SEK ≈ ₹9.59 [ecb]। আপনার ব্যাংকের রেট আলাদা হবে, আর ফি বদলায় — টাকা দেওয়ার আগে অফিসিয়াল পেজ অবশ্যই দেখুন।",
+   intro="UK, জার্মানি, সুইডেন, USA, কানাডা, অস্ট্রেলিয়া আর UAE-তে পড়তে যাওয়ার টাকা, নিরাপত্তা আর চাকরি নিয়ে সোজা উত্তর। প্রতিটা অঙ্ক সেই দেশের মুদ্রায়, সঙ্গে ভারতীয় টাকায় আনুমানিক হিসেব। প্রশ্নে ক্লিক করলে উত্তর খুলবে।",
+   rates="টাকার হিসেব European Central Bank-এর ১৬ অক্টোবর ২০২৬-এর রেট ধরে: £1 ≈ ₹126.6, $1 ≈ ₹95.0, €1 ≈ ₹106.9, 1 SEK ≈ ₹9.59 [ecb]; CAD 1 ≈ ₹67.45 আর AUD 1 ≈ ₹66.32 ১৯ অক্টোবর ২০২৬-এর রেট ধরে [ecb19]; AED 1 ≈ ₹25.87 (দিরহাম US ডলারের সঙ্গে বাঁধা)। আপনার ব্যাংকের রেট আলাদা হবে, আর ফি বদলায় — টাকা দেওয়ার আগে অফিসিয়াল পেজ অবশ্যই দেখুন।",
    jump="সরাসরি যান", qs_cols=["বিশ্ববিদ্যালয়", "দেশ", "QS 2027 র‍্যাংক"],
    qs_note="“=” মানে সমান স্থান। QS-এর প্রথম ১০০-য় নেই: " + QS_OUT + "। সূত্র: [qs]",
    src_h="সূত্র", checked="শেষ যাচাই",
    note_src="বন্ধনীর সংখ্যাগুলো এই সূত্রগুলো বোঝায়। কোথাও অন্যের সারাংশ উদ্ধৃত করলে সেটা বলে দিয়েছি — ভরসা করার আগে অফিসিয়াল পেজ দেখুন।"),
 }
-CTRY_BN = {"UK": "UK", "USA": "USA", "Germany": "জার্মানি", "Sweden": "সুইডেন"}
+CTRY_BN = {"UK": "UK", "USA": "USA", "Germany": "জার্মানি", "Sweden": "সুইডেন", "Canada": "কানাডা", "Australia": "অস্ট্রেলিয়া", "UAE": "UAE"}
 
 def qs_table(lang):
     t = T[lang]; c = t["qs_cols"]
-    rows = "".join(f'<tr><th scope="row">{n}</th><td data-label="{c[1]}">{k if lang=="en" else CTRY_BN[k]}</td><td data-label="{c[2]}">{cite(r)}</td></tr>' for n, k, r in QS)
+    rows = "".join(f'<tr><th scope="row">{n}</th><td data-label="{c[1]}">{k if lang=="en" else CTRY_BN[k]}</td><td data-label="{c[2]}">{cite(r)}</td></tr>' for n, k, r in sorted(QS, key=lambda x: int(re.match(r"=?(\d+)", x[2]).group(1))))
     head = "".join(f'<th scope="col">{x}</th>' for x in c)
     return (f'<div class="tablewrap stack"><table class="cmp"><caption>QS World University Rankings 2027</caption>'
             f'<thead><tr>{head}</tr></thead><tbody>{rows}</tbody></table></div><p class="updated">{cite(t["qs_note"])}</p>')

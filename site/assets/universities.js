@@ -9,7 +9,7 @@
       return '<a href="' + u + '" target="_blank" rel="noopener">' + text + '</a>'; }).replace(/ \| /g, "<br>");
   }
   function row(label, val) { return val ? '<dt>' + label + '</dt><dd>' + val + '</dd>' : ""; }
-  var order = ["UK", "Germany", "Sweden", "USA"];
+  var order = ["UK", "Germany", "Sweden", "USA", "Canada", "Australia", "UAE"];
   var unis = U.unis.slice().sort(function (a, b) { return order.indexOf(a.country) - order.indexOf(b.country) || a.name.localeCompare(b.name); });
   function render() {
     var k = norm(q.value.trim()), cc = c.value, h = "", last = "";
@@ -18,7 +18,7 @@
     rows.forEach(function (u) {
       if (u.country !== last) { var C = U.country[u.country]; h += '<h2 class="ucountry">' + esc(u.country) + '</h2><p class="unote"><b>' + t.ug + ':</b> ' + esc(C.ug_route) + ' · ' + esc(C.ug_fee) + '. ' + esc(C.ug_deadline) + (C.tuition ? '<br>' + esc(C.tuition) : '') + '<br><b>' + t.phd + ':</b> ' + esc(U.phd[u.country]) + '</p>'; last = u.country; }
       h += '<section class="ucard"><h3>' + esc(u.name) + ' <span class="ucity">' + esc(u.city || "") + '</span></h3><dl>' +
-        row(t.web, links(u.web)) + row(t.fee, esc(u.pg_fee)) + row(t.deadline, esc(u.pg_deadline)) + row(t.tuition, esc(u.pg_tuition)) +
+        row(t.web, links(u.web)) + row(t.qs, esc(u.qs)) + row(t.fee, esc(u.pg_fee)) + row(t.deadline, esc(u.pg_deadline)) + row(t.tuition, esc(u.pg_tuition)) +
         row(t.sch, esc(u.scholarship)) + row(t.chat, u.chat ? links(u.chat, t.chat_link) + (u.chat_note ? ' <span class="ucity">(' + esc(u.chat_note) + ')</span>' : '') : '') +
         row(t.soc, links(u.society)) + row(t.src, links([u.pg_src, u.scholarship_src].filter(Boolean).join(" | ").replace(/ ; /g, " | "), t.src_link)) + '</dl></section>';
     });
