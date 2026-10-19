@@ -283,3 +283,13 @@ sup { line-height: 0; }
 .prose .journey .stop { padding-bottom: .9rem; }
 .prose .journey .stop h3 { font-size: 1.2rem; line-height: var(--line-h); }
 .prose .journey .stop p { margin: 0; color: var(--muted); }
+
+/* Top-level menu link (World Explorer) */
+.nav .toplink { color: var(--text); text-decoration: none; white-space: nowrap; padding: .2rem 0; }
+.nav .toplink:hover, .nav .toplink[aria-current] { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+
+/* World Explorer: full-width map framed like a page pasted into the notebook */
+.mapwrap { margin: 1.2rem 0 0; padding: 0 var(--gutter) 0 calc(var(--margin-x) + var(--gutter)); }
+.mapwrap iframe { display: block; width: 100%; height: min(78vh, 760px); min-height: 420px; border: 1px solid var(--rule); border-left: 3px solid var(--margin); background: #fff; box-shadow: 0 6px 18px rgba(27,58,140,.06); }
+.prose.explorer { padding-top: 1.6rem; }
+@media (max-width: 760px) { .mapwrap { padding: 0 12px 0 calc(var(--margin-x) + 8px); } .mapwrap iframe { height: 70vh; min-height: 380px; } }

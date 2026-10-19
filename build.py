@@ -9,15 +9,17 @@ T = {  # interface text
  "en": dict(lang="en", other="bn", other_label="বাংলা", skip="Skip to content",
    nav=[("Study abroad", [("Universities", "/universities/"), ("FAQ", "/faq/"), ("Statistics", "/statistics/"), ("Overview", "/#abroad")]),
         ("Learn", [("School", "/#school"), ("Compare education systems", "/education-systems/"), ("Research & PhD", "/#research")]),
+        ("World Explorer", "/world-explorer/"),
         ("About", [("About BiswaPath", "/about/"), ("My journey", "/my-journey/"), ("Contribute", "/contribute/"), ("Editorial policy", "/editorial-policy/")])],
-   foot_nav=[("Education systems compared", "/education-systems/"), ("FAQ", "/faq/"), ("Statistics", "/statistics/"), ("About", "/about/"), ("Contribute", "/contribute/"), ("Editorial policy", "/editorial-policy/"), ("Privacy", "/privacy/")],
+   foot_nav=[("World Explorer", "/world-explorer/"), ("Education systems compared", "/education-systems/"), ("FAQ", "/faq/"), ("Statistics", "/statistics/"), ("About", "/about/"), ("Contribute", "/contribute/"), ("Editorial policy", "/editorial-policy/"), ("Privacy", "/privacy/")],
    foot="BiswaPath is free for every student, always. Founded by Dr Sumit Konar.",
    soon="In preparation"),
  "bn": dict(lang="bn", other="en", other_label="English", skip="মূল লেখায় যান",
    nav=[("বিদেশে পড়াশোনা", [("বিশ্ববিদ্যালয়", "/bn/universities/"), ("প্রশ্নোত্তর", "/bn/faq/"), ("পরিসংখ্যান", "/bn/statistics/"), ("এক নজরে", "/bn/#abroad")]),
         ("শেখা", [("স্কুল", "/bn/#school"), ("শিক্ষাব্যবস্থার তুলনা", "/bn/education-systems/"), ("গবেষণা ও PhD", "/bn/#research")]),
+        ("বিশ্বমানচিত্র", "/bn/world-explorer/"),
         ("আমাদের কথা", [("বিশ্বপাঠ সম্পর্কে", "/bn/about/"), ("আমার যাত্রা", "/bn/my-journey/"), ("যুক্ত হোন", "/bn/contribute/"), ("সম্পাদকীয় নীতি", "/bn/editorial-policy/")])],
-   foot_nav=[("শিক্ষাব্যবস্থার তুলনা", "/bn/education-systems/"), ("প্রশ্নোত্তর", "/bn/faq/"), ("পরিসংখ্যান", "/bn/statistics/"), ("আমাদের কথা", "/bn/about/"), ("যুক্ত হোন", "/bn/contribute/"), ("সম্পাদকীয় নীতি", "/bn/editorial-policy/"), ("গোপনীয়তা", "/bn/privacy/")],
+   foot_nav=[("বিশ্বমানচিত্র", "/bn/world-explorer/"), ("শিক্ষাব্যবস্থার তুলনা", "/bn/education-systems/"), ("প্রশ্নোত্তর", "/bn/faq/"), ("পরিসংখ্যান", "/bn/statistics/"), ("আমাদের কথা", "/bn/about/"), ("যুক্ত হোন", "/bn/contribute/"), ("সম্পাদকীয় নীতি", "/bn/editorial-policy/"), ("গোপনীয়তা", "/bn/privacy/")],
    foot="বিশ্বপাঠ সব ছাত্রছাত্রীর জন্য সবসময় বিনামূল্যে। প্রতিষ্ঠাতা ড. সুমিত কোনার।",
    soon="প্রস্তুত হচ্ছে"),
 }
@@ -30,6 +32,9 @@ def page(lang, path, title, desc, body, current=None):
     t = T[lang]
     nav = ""
     for gl, items in t["nav"]:
+        if isinstance(items, str):  # plain top-level link
+            nav += f'<a class="toplink" href="{items}"{" aria-current=\"page\"" if current == items else ""}>{gl}</a>'
+            continue
         here = any(current == h for _, h in items)
         links = "".join(f'<a href="{h}"{" aria-current=\"page\"" if current == h else ""}>{l}</a>' for l, h in items)
         nav += f'<details class="menu"><summary{" class=\"here\"" if here else ""}>{gl}</summary><div class="drop">{links}</div></details>'
@@ -341,6 +346,9 @@ for _l in ("en", "bn"):
 import faq_page
 for _l in ("en", "bn"):
     PAGES.setdefault("faq", {})[_l] = faq_page.content(_l)
+import explorer_page
+for _l in ("en", "bn"):
+    PAGES.setdefault("world-explorer", {})[_l] = explorer_page.content(_l)
 import journey_page
 for _l in ("en", "bn"):
     PAGES.setdefault("my-journey", {})[_l] = journey_page.content(_l)
