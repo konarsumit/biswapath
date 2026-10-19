@@ -8,12 +8,12 @@ YEAR = "2026"
 T = {  # interface text
  "en": dict(lang="en", other="bn", other_label="বাংলা", skip="Skip to content",
    nav=[("School", "/#school"), ("Universities", "/universities/"), ("Study abroad", "/#abroad"), ("Research & PhD", "/#research"), ("About", "/about/"), ("Contribute", "/contribute/")],
-   foot_nav=[("About", "/about/"), ("Contribute", "/contribute/"), ("Editorial policy", "/editorial-policy/"), ("Privacy", "/privacy/")],
+   foot_nav=[("Education systems compared", "/education-systems/"), ("About", "/about/"), ("Contribute", "/contribute/"), ("Editorial policy", "/editorial-policy/"), ("Privacy", "/privacy/")],
    foot="BiswaPath is free for every student, always. Founded by Dr Sumit Konar.",
    soon="In preparation"),
  "bn": dict(lang="bn", other="en", other_label="English", skip="মূল লেখায় যান",
    nav=[("স্কুল", "/bn/#school"), ("বিশ্ববিদ্যালয়", "/bn/universities/"), ("বিদেশে পড়াশোনা", "/bn/#abroad"), ("গবেষণা ও PhD", "/bn/#research"), ("আমাদের কথা", "/bn/about/"), ("যুক্ত হোন", "/bn/contribute/")],
-   foot_nav=[("আমাদের কথা", "/bn/about/"), ("যুক্ত হোন", "/bn/contribute/"), ("সম্পাদকীয় নীতি", "/bn/editorial-policy/"), ("গোপনীয়তা", "/bn/privacy/")],
+   foot_nav=[("শিক্ষাব্যবস্থার তুলনা", "/bn/education-systems/"), ("আমাদের কথা", "/bn/about/"), ("যুক্ত হোন", "/bn/contribute/"), ("সম্পাদকীয় নীতি", "/bn/editorial-policy/"), ("গোপনীয়তা", "/bn/privacy/")],
    foot="বিশ্বপাঠ সব ছাত্রছাত্রীর জন্য সবসময় বিনামূল্যে। প্রতিষ্ঠাতা ড. সুমিত কোনার।",
    soon="প্রস্তুত হচ্ছে"),
 }
@@ -299,7 +299,7 @@ def universities(lang):
     data = {"unis": list(UDATA["unis"].values()), "country": UDATA["country"], "phd": PHD, "t": t}
     body = f"""<article class="wrap prose uni">
 <h1>{t['h1']}</h1>
-<p>{t['intro']}</p>{t['lang_note']}
+<p>{t['intro']}</p>{t['lang_note']}<p><a href="{pre}/education-systems/">{'How do school and degree stages compare between countries?' if lang=='en' else 'বিভিন্ন দেশে স্কুল আর ডিগ্রির ধাপ কীভাবে মেলে?'}</a></p>
 <p><a href="/downloads/BiswaPath_University_Guide_2027.xlsx" download>{'Download the full list as an Excel file' if lang=='en' else 'পুরো তালিকা Excel ফাইল হিসেবে ডাউনলোড করুন'}</a></p>
 <div class="ufilters"><input id="uq" type="search" placeholder="{t['search']}" aria-label="{t['search']}">
 <select id="uc" aria-label="{t['all']}"><option value="">{t['all']}</option><option>UK</option><option>Germany</option><option>Sweden</option><option>USA</option></select></div>
@@ -311,6 +311,10 @@ def universities(lang):
 <script src="/assets/universities.js"></script>"""
     path = "/universities/" if lang == "en" else "/bn/universities/"
     return page(lang, path, t["title"], t["desc"], body, current=path)
+
+import edu_page
+for _l in ("en", "bn"):
+    PAGES.setdefault("education-systems", {})[_l] = edu_page.content(_l)
 
 def write(rel, text):
     p = os.path.join(SITE, rel); os.makedirs(os.path.dirname(p), exist_ok=True)

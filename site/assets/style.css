@@ -139,3 +139,15 @@ a:hover { color: var(--margin); }
 .ucard dl { display: grid; grid-template-columns: 13rem 1fr; gap: .25rem 1rem; margin: 0; font-size: .97rem; }
 .ucard dt { color: var(--muted); } .ucard dd { margin: 0; overflow-wrap: anywhere; }
 @media (max-width: 640px) { .ucard dl { grid-template-columns: 1fr; } .ucard dt { margin-top: .4rem; font-weight: 600; } }
+
+/* Comparison table */
+.tablewrap { overflow-x: auto; margin: 1.4rem 0 .3rem; border: 1px solid var(--rule); max-width: 100%; }
+.tablewrap:focus-visible { outline: 3px solid var(--margin); }
+table.cmp { border-collapse: collapse; min-width: 900px; font-size: .92rem; line-height: 1.45; background: #fff; }
+table.cmp caption { text-align: left; padding: .6rem .8rem; color: var(--muted); font-size: .9rem; }
+table.cmp th, table.cmp td { border-top: 1px solid var(--rule); padding: .55rem .7rem; vertical-align: top; text-align: left; }
+table.cmp thead th { background: var(--ink); color: #fff; font-weight: 600; border-top: 0; }
+table.cmp tbody th { color: var(--ink); font-weight: 600; white-space: nowrap; }
+table.cmp td:nth-child(2) { background: #f3f6fc; }
+.prose .srcs li { font-size: .92rem; }
+.prose .tablewrap { max-width: none; width: min(72rem, calc(100vw - var(--margin-x) - 2 * var(--gutter))); }
