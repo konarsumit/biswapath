@@ -213,13 +213,13 @@ def sections(lang):
        "<li><b>USA:</b> India was the largest source of international students in 2024/25; Open Doors counts 363,019 Indian students, 143,740 of them on OPT [us_stats].</li>"
        "<li><b>UK:</b> 82,523 study visas went to Indian main applicants in the year to June 2026 — 23% of all 365,868 [uk_stats].</li>"
        "<li><b>Germany:</b> a record 69,816 Indian students in winter semester 2025/26, up 17.5% in a year [de_stats].</li></ul>"
-       "Counting methods differ (visas issued vs students enrolled), so the numbers are not directly comparable.")
+       "Counting methods differ (visas issued vs students enrolled), so the numbers are not directly comparable. More, including Bangladesh and subjects: <a href=\"/statistics/\">Students abroad: the numbers</a>.")
       if E else
       ("<ul><li>২০২৫-এ <b>প্রায় ১৮.৮২ লাখ</b> ভারতীয় ছাত্র ১৫৩টি দেশে পড়ছিল; প্রধান দেশ কানাডা (৪.২৭ লাখ), USA (২.৫৫ লাখ), UAE (২.৫৩ লাখ), অস্ট্রেলিয়া (১.৯৬ লাখ), UK (১.৭৩ লাখ) — রাজ্যসভায় বিদেশ মন্ত্রকের উত্তর [mea]।</li>"
        "<li><b>USA:</b> ২০২৪/২৫-এ বিদেশি ছাত্রদের সবচেয়ে বড় উৎস ভারত; Open Doors-এর হিসেবে ৩,৬৩,০১৯ জন ভারতীয় ছাত্র, তার মধ্যে ১,৪৩,৭৪০ জন OPT-তে [us_stats]।</li>"
        "<li><b>UK:</b> জুন ২০২৬ পর্যন্ত এক বছরে ৮২,৫২৩টি স্টাডি ভিসা পেয়েছেন ভারতীয় মূল আবেদনকারীরা — মোট ৩,৬৫,৮৬৮-এর ২৩% [uk_stats]।</li>"
        "<li><b>জার্মানি:</b> শীতকালীন সেমেস্টার ২০২৫/২৬-এ রেকর্ড ৬৯,৮১৬ জন ভারতীয় ছাত্র, এক বছরে ১৭.৫% বেশি [de_stats]।</li></ul>"
-       "গোনার পদ্ধতি আলাদা (ভিসা দেওয়া বনাম ভর্তি হওয়া ছাত্র), তাই সংখ্যাগুলো সরাসরি তুলনা করা যায় না।")),
+       "গোনার পদ্ধতি আলাদা (ভিসা দেওয়া বনাম ভর্তি হওয়া ছাত্র), তাই সংখ্যাগুলো সরাসরি তুলনা করা যায় না। বাংলাদেশ আর বিষয়ভিত্তিক হিসেব-সহ আরও: <a href=\"/bn/statistics/\">বিদেশে ছাত্রছাত্রী: সংখ্যার হিসেব</a>।")),
     ]))
     # ---------------- 6. Safety ----------------
     S.append(("safety", "Safety" if E else "নিরাপত্তা", [

@@ -246,3 +246,12 @@ sup { line-height: 0; }
 .faq .ans .tablewrap { margin: .4rem 0; }
 .inr { color: var(--muted); white-space: nowrap; }
 @media print { .faq details > .ans { display: block; } }
+
+/* Statistics: simple ink bars on the ruled lines */
+.bars { max-width: 36em; margin: .2rem 0 1.4rem; }
+.bar { display: grid; grid-template-columns: 7.5rem 1fr 6.5rem; gap: .8rem; align-items: center; height: var(--line-h); }
+.bar .lbl { white-space: nowrap; }
+.bar .track { height: .7rem; background: transparent; border-bottom: 1px solid var(--rule); }
+.bar .fill { display: block; height: 100%; background: var(--ink); }
+.bar .val { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); white-space: nowrap; }
+@media (max-width: 480px) { .bar { grid-template-columns: 5.5rem 1fr 5.5rem; gap: .5rem; } }

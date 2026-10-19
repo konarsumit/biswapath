@@ -1,0 +1,106 @@
+# Content for the "Students abroad: the numbers" page (imported by build.py). Checked 19 Oct 2026.
+import re
+
+CHECKED = {"en": "19 October 2026", "bn": "১৯ অক্টোবর ২০২৬"}
+
+SRC = {
+ "mea": ("Orissa Post: Ministry of External Affairs written reply in the Rajya Sabha (December 2025)", "https://www.orissapost.com/over-18-lakh-indians-study-abroad-govt-flags-visa-violations-behind-many-deportations/amp/"),
+ "od_in": ("Open Doors 2025: India fact sheet (IIE)", "https://opendoorsdata.org/wp-content/uploads/2026/01/OD_India_Fact-Sheet-2025.pdf"),
+ "od_bd": ("Open Doors 2025: Bangladesh fact sheet (IIE)", "https://opendoorsdata.org/wp-content/uploads/2026/01/OD_Bangladesh_Fact-Sheet-2025.pdf"),
+ "od_pr": ("Open Doors 2025 press release (IIE)", "https://opendoorsdata.org/wp-content/uploads/2025/11/OD25_Open-Doors-2025-Press-Release.pdf"),
+ "od_1819": ("Open Doors 2018/19, Indian students by field (chart)", "https://datawrapper.dwcdn.net/MlZW9/1"),
+ "ho": ("Home Office: Why do people come to the UK? Study (year ending June 2026)", "https://www.gov.uk/government/statistics/immigration-system-statistics-year-ending-june-2026/why-do-people-come-to-the-uk-study"),
+ "daad": ("DAAD India: Indian students in Germany at an all-time high (September 2025)", "https://www.daad.in/en/2025/09/22/indian-students-in-germany-at-an-all-time-high/"),
+ "pie": ("The PIE News: Indian students in Germany, winter semester 2025/26", "https://thepienews.com/number-of-indian-students-in-germany-rises-to-record-70k-high/"),
+ "unesco": ("The Daily Star: Bangladeshi students abroad, UNESCO data (August 2023)", "https://www.thedailystar.net/news/bangladesh/news/number-students-going-abroad-triples-15-years-despite-university-boom-3397431"),
+ "icef": ("ICEF Monitor: outbound students from Bangladesh, OECD data (November 2025)", "https://monitor.icef.com/2025/11/the-economic-indicators-driving-outbound-student-mobility-from-bangladesh-indonesia-nepal-and-vietnam/"),
+ "tbs": ("TBS News: why UK universities are restricting Bangladeshi and Pakistani recruitment (December 2025)", "https://www.tbsnews.net/explainer/why-are-uk-universities-restricting-recruitment-bangladeshi-pakistani-students-1302001"),
+ "the": ("Times Higher Education: Asian international students shift to tech and health courses (July 2025)", "https://www.timeshighereducation.com/node/738245"),
+ "ls": ("Lok Sabha Starred Question 84, 29 July 2024: students going abroad (national totals only)", "https://sabrangindia.in/wp-content/uploads/2024/08/loksabhaquestions_Students-Migration.pdf"),
+}
+ORDER = list(SRC)
+
+def cite(text):
+    return re.sub(r"\[(\w+)\]", lambda m: f'<sup><a href="#src-{m.group(1)}">[{ORDER.index(m.group(1)) + 1}]</a></sup>' if m.group(1) in SRC else m.group(0), text)
+
+IN_DEST = [("Canada", "কানাডা", 4.27), ("USA", "USA", 2.55), ("UAE", "UAE", 2.53), ("Australia", "অস্ট্রেলিয়া", 1.96), ("UK", "UK", 1.73)]
+BD_DEST = [("UAE", "UAE", 11157), ("USA", "USA", 8665), ("Malaysia", "মালয়েশিয়া", 6180)]
+
+def bars(rows, lang, fmt, maxv):
+    out = '<div class="bars">'
+    for en, bn, v in rows:
+        out += (f'<div class="bar"><span class="lbl">{en if lang=="en" else bn}</span>'
+                f'<span class="track"><span class="fill" style="width:{v/maxv*100:.1f}%"></span></span>'
+                f'<span class="val">{fmt(v)}</span></div>')
+    return out + "</div>"
+
+def table(cols, rows, cap):
+    head = "".join(f'<th scope="col">{c}</th>' for c in cols)
+    body = "".join("<tr>" + f'<th scope="row">{r[0]}</th>' + "".join(f'<td data-label="{cols[i+1]}">{cite(x)}</td>' for i, x in enumerate(r[1:])) + "</tr>" for r in rows)
+    return f'<div class="tablewrap stack"><table class="cmp"><caption>{cap}</caption><thead><tr>{head}</tr></thead><tbody>{body}</tbody></table></div>'
+
+def content(lang):
+    E = lang == "en"; ck = CHECKED[lang]
+    lakh = (lambda v: f"{v:.2f} lakh") if E else (lambda v: f"{v:.2f} লাখ")
+    num = lambda v: f"{v:,}"
+    title = "Students abroad: the numbers" if E else "বিদেশে ছাত্রছাত্রী: সংখ্যার হিসেব"
+    desc = ("How many Indian and Bangladeshi students study abroad, in which countries and in which subjects — official figures with sources."
+            if E else "কতজন ভারতীয় আর বাংলাদেশি ছাত্রছাত্রী বিদেশে পড়ে, কোন দেশে, কোন বিষয়ে — সূত্র-সহ সরকারি হিসেব।")
+    if E:
+        h = f"""<p>How many students from India and Bangladesh study abroad, where they go, and what they study. Countries count students in different ways — visas issued, students enrolled, or people who say “study” at the airport — so numbers from different sources are not directly comparable.</p>
+<h2 id="india">India</h2>
+<p><b>About 18.82 lakh</b> Indian students were studying abroad in 2025, in 153 countries. The five largest destinations: [mea]</p>
+{bars(IN_DEST, lang, lakh, 4.27)}
+{table(["Country", "Latest figure", "What it counts"], [
+ ["USA", "<b>3,63,019</b> in 2024/25, up 10%; India is the largest source country [od_in] [od_pr]", "Students enrolled plus 1,43,740 graduates on OPT work permits. New international enrolments fell 17% in autumn 2025 [od_pr]."],
+ ["UK", "<b>82,523</b> study visas in the year to June 2026 — 23% of all, down 16% [ho]", "Visas granted to main applicants. Indians also received 64,495 Graduate-visa extensions [ho]."],
+ ["Germany", "<b>69,816</b> in winter semester 2025/26, a record, up 17.5% [pie]", "Students enrolled at universities; India is Germany's largest group of foreign students."],
+], "Indian students in three BiswaPath countries")}
+<h2 id="bangladesh">Bangladesh</h2>
+<p>At least <b>49,151</b> Bangladeshi students were abroad in 2022 (UNESCO), three times the 2008 figure; OECD data gives about <b>52,800</b> [unesco] [icef]. The three largest destinations in 2022: [unesco]</p>
+{bars(BD_DEST, lang, num, 11157)}
+{table(["Country", "Latest figure", "Note"], [
+ ["USA", "<b>20,156</b> in 2024/25, up 18%; 9th largest source country [od_bd]", "Two-thirds (13,016) are postgraduates."],
+ ["UK", "No published total", "In the year to September 2025, 22% of Bangladeshi student-visa applications were refused, and several UK universities paused or limited recruitment from Bangladesh, including Coventry, Sunderland, London Met and Hertfordshire [tbs]."],
+], "Bangladeshi students: the US and the UK")}
+<h2 id="subjects">Which subjects?</h2>
+<ul>
+<li><b>Germany</b> (Indian students): engineering 60%, social sciences, economics and management 21%, maths and natural sciences 18% [daad].</li>
+<li><b>USA:</b> 57% of all international students study STEM subjects [od_pr]. The last published split for Indian students (2018/19) showed nearly 70% in maths, computer science or engineering [od_1819].</li>
+<li><b>UK</b> (2023/24): nearly one in four Indian students chose computing and IT or health and medicine; 12% of Bangladeshi students chose computing and IT, up from 9% in 2019/20. Business and management is still the largest subject overall [the].</li>
+</ul>
+<h2 id="gaps">What nobody counts</h2>
+<p><b>Bengali students.</b> India's government reports only national totals — a reply to Parliament asked for state-wise figures and gave none [ls] — and no country records students by mother tongue. Bangladesh's figures are, in practice, almost all Bengali students; for West Bengal there is no published number.</p>
+<p><b>Subject by university.</b> No official source shows which universities, say, Indian chemistry students choose compared with economics students. For that, use subject rankings and the course pages in our <a href="/universities/">University finder</a>.</p>
+<div class="invite"><p><b>Help us count.</b> If you are a Bengali student abroad, tell us your subject and university (and, if you like, your home district) through the <a href="/contribute/">Contribute</a> page. With enough answers, BiswaPath will publish the first map of where Bengali students study, by subject — counts only, never names.</p></div>"""
+    else:
+        h = f"""<p>ভারত আর বাংলাদেশ থেকে কতজন বিদেশে পড়তে যায়, কোথায় যায়, কী পড়ে। বিভিন্ন দেশ আলাদা ভাবে গোনে — দেওয়া ভিসা, ভর্তি হওয়া ছাত্র, বা বিমানবন্দরে যারা “পড়াশোনা” বলে — তাই আলাদা সূত্রের সংখ্যা সরাসরি তুলনা করা যায় না।</p>
+<h2 id="india">ভারত</h2>
+<p>২০২৫-এ <b>প্রায় ১৮.৮২ লাখ</b> ভারতীয় ছাত্রছাত্রী ১৫৩টি দেশে পড়ছিল। সবচেয়ে বড় পাঁচটা গন্তব্য: [mea]</p>
+{bars(IN_DEST, lang, lakh, 4.27)}
+{table(["দেশ", "সর্বশেষ সংখ্যা", "কী গোনা হয়েছে"], [
+ ["USA", "২০২৪/২৫-এ <b>3,63,019</b>, ১০% বেশি; সবচেয়ে বড় উৎস ভারত [od_in] [od_pr]", "ভর্তি হওয়া ছাত্র, সঙ্গে OPT ওয়ার্ক পারমিটে থাকা 1,43,740 জন গ্র্যাজুয়েট। ২০২৫-এর শরতে নতুন বিদেশি ভর্তি ১৭% কমেছে [od_pr]।"],
+ ["UK", "জুন ২০২৬ পর্যন্ত এক বছরে <b>82,523</b>টি স্টাডি ভিসা — মোটের ২৩%, ১৬% কম [ho]", "মূল আবেদনকারীদের দেওয়া ভিসা। ভারতীয়রা 64,495টি Graduate-ভিসা এক্সটেনশনও পেয়েছেন [ho]।"],
+ ["জার্মানি", "শীতকালীন সেমেস্টার ২০২৫/২৬-এ রেকর্ড <b>69,816</b>, ১৭.৫% বেশি [pie]", "বিশ্ববিদ্যালয়ে ভর্তি ছাত্র; জার্মানিতে বিদেশি ছাত্রদের মধ্যে ভারতীয়রাই সবচেয়ে বেশি।"],
+], "BiswaPath-এর তিনটে দেশে ভারতীয় ছাত্রছাত্রী")}
+<h2 id="bangladesh">বাংলাদেশ</h2>
+<p>২০২২-এ অন্তত <b>49,151</b> জন বাংলাদেশি ছাত্রছাত্রী বিদেশে ছিল (UNESCO), ২০০৮-এর তিন গুণ; OECD-র হিসেবে প্রায় <b>52,800</b> [unesco] [icef]। ২০২২-এর সবচেয়ে বড় তিনটে গন্তব্য: [unesco]</p>
+{bars(BD_DEST, lang, num, 11157)}
+{table(["দেশ", "সর্বশেষ সংখ্যা", "মন্তব্য"], [
+ ["USA", "২০২৪/২৫-এ <b>20,156</b>, ১৮% বেশি; উৎস দেশ হিসেবে ৯ নম্বরে [od_bd]", "দুই-তৃতীয়াংশ (13,016) স্নাতকোত্তর।"],
+ ["UK", "মোট সংখ্যা প্রকাশিত হয়নি", "সেপ্টেম্বর ২০২৫ পর্যন্ত এক বছরে বাংলাদেশি স্টুডেন্ট-ভিসা আবেদনের ২২% বাতিল হয়েছে, আর Coventry, Sunderland, London Met, Hertfordshire-সহ কয়েকটা UK বিশ্ববিদ্যালয় বাংলাদেশ থেকে ভর্তি বন্ধ বা সীমিত করেছে [tbs]।"],
+], "বাংলাদেশি ছাত্রছাত্রী: USA আর UK")}
+<h2 id="subjects">কোন বিষয়?</h2>
+<ul>
+<li><b>জার্মানি</b> (ভারতীয় ছাত্র): ইঞ্জিনিয়ারিং ৬০%, সমাজবিজ্ঞান, অর্থনীতি ও ম্যানেজমেন্ট ২১%, অঙ্ক ও প্রাকৃতিক বিজ্ঞান ১৮% [daad]।</li>
+<li><b>USA:</b> সব বিদেশি ছাত্রের ৫৭% STEM পড়ে [od_pr]। ভারতীয়দের শেষ প্রকাশিত হিসেব (২০১৮/১৯): প্রায় ৭০% অঙ্ক, কম্পিউটার সায়েন্স বা ইঞ্জিনিয়ারিং [od_1819]।</li>
+<li><b>UK</b> (২০২৩/২৪): প্রায় প্রতি চারজন ভারতীয় ছাত্রের একজন কম্পিউটিং ও IT বা স্বাস্থ্য ও মেডিসিন বেছেছেন; বাংলাদেশি ছাত্রদের ১২% কম্পিউটিং ও IT, ২০১৯/২০-তে যা ছিল ৯%। সব মিলিয়ে বিজনেস ও ম্যানেজমেন্টই এখনও সবচেয়ে বড় বিষয় [the]।</li>
+</ul>
+<h2 id="gaps">যা কেউ গোনে না</h2>
+<p><b>বাঙালি ছাত্রছাত্রী।</b> ভারত সরকার শুধু সারা দেশের মোট সংখ্যা দেয় — সংসদে রাজ্যভিত্তিক হিসেব চাওয়া হলেও দেওয়া হয়নি [ls] — আর কোনো দেশ মাতৃভাষা ধরে ছাত্র গোনে না। বাংলাদেশের সংখ্যা কার্যত প্রায় সবই বাঙালি ছাত্রছাত্রী; পশ্চিমবঙ্গের কোনো প্রকাশিত সংখ্যা নেই।</p>
+<p><b>বিষয় অনুযায়ী বিশ্ববিদ্যালয়।</b> ভারতীয় কেমিস্ট্রির ছাত্ররা কোন বিশ্ববিদ্যালয় বেছে নেয় আর অর্থনীতির ছাত্ররা কোনটা — এমন কোনো সরকারি হিসেব নেই। তার জন্য বিষয়ভিত্তিক র‍্যাংকিং আর আমাদের <a href="/bn/universities/">বিশ্ববিদ্যালয় খোঁজার পাতার</a> কোর্স পেজ দেখুন।</p>
+<div class="invite"><p><b>গুনতে সাহায্য করুন।</b> আপনি যদি বিদেশে পড়া বাঙালি ছাত্র বা ছাত্রী হন, <a href="/bn/contribute/">যুক্ত হোন</a> পাতা দিয়ে আপনার বিষয় আর বিশ্ববিদ্যালয় (চাইলে নিজের জেলাও) জানান। যথেষ্ট উত্তর পেলে BiswaPath প্রকাশ করবে বাঙালি ছাত্রছাত্রীরা কোথায়, কোন বিষয়ে পড়ে তার প্রথম মানচিত্র — শুধু সংখ্যা, কারও নাম নয়।</p></div>"""
+    src = "".join(f'<li id="src-{k}"><a href="{SRC[k][1]}" target="_blank" rel="noopener">{SRC[k][0]}</a></li>' for k in ORDER)
+    h = cite(h) + (f'<h2>{"Sources" if E else "সূত্র"}</h2><ol class="srcs">{src}</ol>'
+                   f'<p class="updated">{"Last checked" if E else "শেষ যাচাই"}: {ck}</p>')
+    return title, desc, h
