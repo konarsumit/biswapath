@@ -165,3 +165,60 @@ table.cmp sup a { text-decoration: none; font-size: .75em; }
   .stack table.cmp td { background: transparent !important; }
   .stack table.cmp td::before { content: attr(data-label); display: block; font-weight: 600; color: var(--muted); font-size: .85rem; }
 }
+
+/* ===== Notebook everywhere: the whole page is ruled; text sits on the lines ===== */
+:root { --rule-soft: #dde7f4; }
+.page {
+  background-image: linear-gradient(to bottom, transparent calc(var(--line-h) - 1px), var(--rule-soft) calc(var(--line-h) - 1px));
+  background-size: 100% var(--line-h);
+}
+.hero { background-image: none; }
+body, :lang(bn) body, body:lang(bn) { line-height: var(--line-h); }
+p, li, dd, dt, .lede, .meaning, .intro, .unote, .updated, .foot, .nav { line-height: var(--line-h); }
+p, ul, ol { margin-top: 0; margin-bottom: var(--line-h); }
+.top { padding-top: calc(var(--line-h) * .5); padding-bottom: calc(var(--line-h) * .5); }
+.brand .bn, .brand .en { line-height: var(--line-h); }
+.wordmark { line-height: calc(var(--line-h) * 4.5); }
+.wordmark .latin { line-height: calc(var(--line-h) * 2); margin-top: 0; }
+@media (max-width: 760px) { .wordmark { line-height: calc(var(--line-h) * 2.5); } .wordmark .latin { line-height: calc(var(--line-h) * 1.5); } }
+.meaning { margin-top: 0; }
+.section { padding-top: calc(var(--line-h) * 2); padding-bottom: 0; }
+.section > h2, .prose h1, .prose h2 { line-height: calc(var(--line-h) * 2); margin: 0; }
+.prose { padding-top: var(--line-h); padding-bottom: var(--line-h); }
+.prose h1 { margin-bottom: var(--line-h); }
+.section > .intro { margin-bottom: var(--line-h); }
+.stop { padding-bottom: var(--line-h); }
+.stop h3, .ucard h3 { line-height: var(--line-h); }
+.stop h3 .other { line-height: var(--line-h); }
+.stop p { margin: 0; }
+.stop::before { top: 7px; }
+/* lists of resources sit on the ruled lines themselves */
+.res { border-top: 0; margin-bottom: 0; }
+.res li { border-bottom: 0; padding: 0; line-height: var(--line-h); min-height: var(--line-h); }
+.btn { line-height: 1.5rem; padding: .25rem 1rem; vertical-align: baseline; }
+.lang { line-height: 1.5rem; padding-top: 0; padding-bottom: 0; }
+.invite { border-left-width: 4px; padding-top: 0; padding-bottom: 0; }
+.invite p { margin: 0 0 var(--line-h); }
+.invite p:last-child { margin-bottom: 0; }
+.founder p { margin: 0 0 var(--line-h); }
+.foot { border-top: 0; margin-top: var(--line-h); padding-top: var(--line-h); padding-bottom: var(--line-h); }
+.foot nav { line-height: var(--line-h); margin-bottom: 0; gap: 0 1.2rem; }
+.foot p { margin: 0; }
+/* University finder entries written on the lines */
+.uni .unote { margin-bottom: var(--line-h); }
+.ucard { border-top: 0; padding: 0; margin-bottom: var(--line-h); }
+.ucard dl { gap: 0 1rem; }
+.uni h2.ucountry { margin-top: var(--line-h); }
+/* "Paper slips": tables and search boxes sit on plain paper so figures stay easy to read */
+.slip, .tablewrap, .ufilters { background: #fff; box-shadow: 0 0 0 1px var(--rule); }
+.ufilters { padding: .5rem; margin: 0 0 var(--line-h); }
+.tablewrap { margin: 0 0 var(--line-h); }
+.prose .srcs li { line-height: var(--line-h); }
+sup { line-height: 0; }
+@media (max-width: 760px) {
+  .stack.tablewrap { background: transparent; box-shadow: none; }
+  .stack table.cmp tr { background: #fff; }
+}
+@media print { .page { background: none; } }
+.hero { padding-bottom: 0; }
+.hero .lede { margin-bottom: 0; }

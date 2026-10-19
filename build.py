@@ -49,6 +49,7 @@ def page(lang, path, title, desc, body, current=None):
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/assets/fonts/tiro-bangla-bengali-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/rule.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">{t['skip']}</a>

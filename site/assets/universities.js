@@ -23,6 +23,7 @@
         row(t.soc, links(u.society)) + row(t.src, links([u.pg_src, u.scholarship_src].filter(Boolean).join(" | ").replace(/ ; /g, " | "), t.src_link)) + '</dl></section>';
     });
     list.innerHTML = h;
+    document.dispatchEvent(new Event("biswapath:rendered"));
   }
   q.addEventListener("input", render); c.addEventListener("change", render); render();
 })();
