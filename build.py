@@ -7,12 +7,12 @@ YEAR = "2026"
 
 T = {  # interface text
  "en": dict(lang="en", other="bn", other_label="বাংলা", skip="Skip to content",
-   nav=[("School", "/#school"), ("Universities", "/universities/"), ("Study abroad", "/#abroad"), ("Research & PhD", "/#research"), ("About", "/about/"), ("Contribute", "/contribute/")],
+   nav=[("School", "/#school"), ("Universities", "/universities/"), ("Compare systems", "/education-systems/"), ("Study abroad", "/#abroad"), ("Research & PhD", "/#research"), ("About", "/about/"), ("Contribute", "/contribute/")],
    foot_nav=[("Education systems compared", "/education-systems/"), ("About", "/about/"), ("Contribute", "/contribute/"), ("Editorial policy", "/editorial-policy/"), ("Privacy", "/privacy/")],
    foot="BiswaPath is free for every student, always. Founded by Dr Sumit Konar.",
    soon="In preparation"),
  "bn": dict(lang="bn", other="en", other_label="English", skip="মূল লেখায় যান",
-   nav=[("স্কুল", "/bn/#school"), ("বিশ্ববিদ্যালয়", "/bn/universities/"), ("বিদেশে পড়াশোনা", "/bn/#abroad"), ("গবেষণা ও PhD", "/bn/#research"), ("আমাদের কথা", "/bn/about/"), ("যুক্ত হোন", "/bn/contribute/")],
+   nav=[("স্কুল", "/bn/#school"), ("বিশ্ববিদ্যালয়", "/bn/universities/"), ("শিক্ষাব্যবস্থার তুলনা", "/bn/education-systems/"), ("বিদেশে পড়াশোনা", "/bn/#abroad"), ("গবেষণা ও PhD", "/bn/#research"), ("আমাদের কথা", "/bn/about/"), ("যুক্ত হোন", "/bn/contribute/")],
    foot_nav=[("শিক্ষাব্যবস্থার তুলনা", "/bn/education-systems/"), ("আমাদের কথা", "/bn/about/"), ("যুক্ত হোন", "/bn/contribute/"), ("সম্পাদকীয় নীতি", "/bn/editorial-policy/"), ("গোপনীয়তা", "/bn/privacy/")],
    foot="বিশ্বপাঠ সব ছাত্রছাত্রীর জন্য সবসময় বিনামূল্যে। প্রতিষ্ঠাতা ড. সুমিত কোনার।",
    soon="প্রস্তুত হচ্ছে"),
