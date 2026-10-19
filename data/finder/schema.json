@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://biswapath.pages.dev/data/finder/schema.json",
+  "title": "BiswaPath finder record: one university x one subject x one degree level",
+  "type": "object",
+  "required": ["university_id", "country", "subject_id", "level", "indian_enrolment", "checked"],
+  "properties": {
+    "university_id": {"type": "string", "description": "Key used in data/universities.json, e.g. 'manchester'"},
+    "country": {"enum": ["UK", "Germany", "USA", "Canada", "Australia", "UAE", "Sweden"], "description": "Destination country; Bangladesh and others to follow"},
+    "subject_id": {"type": "string", "description": "id from subjects.json"},
+    "level": {"enum": ["bachelor", "master", "phd"]},
+    "programmes": {"type": "array", "items": {"type": "object",
+      "required": ["name", "url"],
+      "properties": {
+        "name": {"type": "string"},
+        "url": {"type": "string", "format": "uri"},
+        "taught_in_english": {"type": "boolean"},
+        "duration_months": {"type": "integer"},
+        "entry_requirements": {"type": "string"},
+        "tuition": {"$ref": "#/$defs/money"},
+        "application_fee": {"$ref": "#/$defs/money"},
+        "deadline": {"type": "string"},
+        "scholarships": {"type": "array", "items": {"type": "string"}}
+      }}},
+    "indian_enrolment": {"$ref": "#/$defs/figure", "description": "Indian students at this university in this subject. value stays null unless a source publishes it."},
+    "bangladeshi_enrolment": {"$ref": "#/$defs/figure"},
+    "subject_rank": {"type": "array", "items": {"type": "object",
+      "required": ["ranking", "edition", "rank", "source_url"],
+      "properties": {
+        "ranking": {"type": "string", "description": "e.g. 'QS World University Rankings by Subject: Chemistry'"},
+        "edition": {"type": "integer"},
+        "rank": {"type": "string", "description": "As published, e.g. '=25' or '101-150'"},
+        "source_url": {"type": "string", "format": "uri"},
+        "source_kind": {"enum": ["primary", "secondary"]}
+      }}, "description": "Subject strength only; never used as popularity with Indian students"},
+    "chat_url": {"type": "string", "format": "uri"},
+    "checked": {"type": "string", "format": "date"},
+    "note_en": {"type": "string"},
+    "note_bn": {"type": "string"}
+  },
+  "$defs": {
+    "money": {"type": "object", "required": ["amount", "currency"],
+      "properties": {"amount": {"type": "number"}, "currency": {"type": "string"}, "per": {"enum": ["year", "semester", "credit", "programme", "application"]}, "year": {"type": "string"}, "source_url": {"type": "string", "format": "uri"}}},
+    "figure": {"type": "object", "required": ["value", "status"],
+      "properties": {
+        "value": {"type": ["integer", "null"]},
+        "measure_type": {"enum": ["enrolment", "opt_participants", "visa_grants", "government_estimate", "biswapath_survey"]},
+        "period": {"type": "string", "description": "e.g. '2024/25' or 'winter semester 2025/26'"},
+        "status": {"enum": ["verified", "not_published", "custom_request_needed", "university_publishes", "pending_check"]},
+        "source_url": {"type": "string", "format": "uri"},
+        "source_kind": {"enum": ["primary", "secondary"]}
+      }}
+  }
+}

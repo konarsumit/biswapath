@@ -1,0 +1,23 @@
+{
+  "_note": "Examples only, to show the structure. Programme lists are not yet filled. indian_enrolment is null everywhere because no open source publishes university x subject x nationality counts.",
+  "records": [
+    {"university_id": "manchester", "country": "UK", "subject_id": "chemistry", "level": "master",
+     "programmes": [],
+     "indian_enrolment": {"value": null, "status": "custom_request_needed", "measure_type": "enrolment",
+       "source_url": "https://www.hesa.ac.uk/news/27-01-2026/sb273-higher-education-student-statistics/location", "source_kind": "primary"},
+     "subject_rank": [], "checked": "2026-10-19",
+     "note_en": "HESA open data gives university x country and university x subject separately, not together."},
+    {"university_id": "tum", "country": "Germany", "subject_id": "chemistry", "level": "master",
+     "programmes": [],
+     "indian_enrolment": {"value": null, "status": "not_published", "measure_type": "enrolment"},
+     "subject_rank": [{"ranking": "QS World University Rankings by Subject: Chemistry", "edition": 2026, "rank": "=25",
+       "source_url": "https://xuanxiao.org/en/subjects/chemistry/de", "source_kind": "secondary"}],
+     "checked": "2026-10-19"},
+    {"university_id": "uiuc", "country": "USA", "subject_id": "engineering", "level": "master",
+     "programmes": [],
+     "indian_enrolment": {"value": null, "status": "not_published", "measure_type": "enrolment",
+       "source_url": "https://www.ice.gov/doclib/sevis/btn/25_0605_2024-sevis-btn.pdf", "source_kind": "primary"},
+     "subject_rank": [], "checked": "2026-10-19",
+     "note_en": "SEVIS and Open Doors publish fields and institutions for all international students together, not by nationality."}
+  ]
+}

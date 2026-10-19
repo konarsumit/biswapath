@@ -37,7 +37,7 @@ SRC = {
  "de_work": ("Make it in Germany (Federal Government): working while studying and after graduation", "https://make-it-in-germany.com/en/looking-for-foreign-professionals/entering/admission-labour-market/students"),
  "de_rent": ("MLP Studentenwohnreport 2025 (press release, 1 October 2025)", "https://mlp-se.de/redaktion/mlp-se-de/presse/pressemitteilungen/2025/mlp-se-pm-d-01102025.pdf"),
  "de_ins": ("GradGermany: student visa, blocked account and health insurance guide", "https://www.gradgermany.com/blog/germany-student-visa-guide-blocked-account-insurance"),
- "de_stats": ("The PIE News: Indian students in Germany, winter semester 2025/26 (DAAD India figures)", "https://thepienews.com/number-of-indian-students-in-germany-rises-to-record-70k-high/"),
+ "de_stats": ("DAAD/DZHW: Wissenschaft weltoffen 2026 press release (14 October 2026)", "https://bildungsklick.de/hochschule-und-forschung/detail/deutschland-weltweit-standort-studium-promotion"),
  "se_money": ("Migrationsverket: residence permit for higher education — money and work rules", "https://www.migrationsverket.se/en/you-want-to-extend/study/higher-education.html"),
  "se_job": ("Migrationsverket: permit to look for work after your studies", "https://www.migrationsverket.se/en/you-want-to-extend/study/look-for-work-after-completing-your-studies-in-sweden.html"),
  "se_budget": ("Uppsala University: financial matters (monthly student budget)", "https://www.uu.se/en/study/masters-studies/living-in-sweden/financing"),
@@ -45,7 +45,7 @@ SRC = {
  "us_work": ("NACE: guide to work options for international students (F-1, OPT, STEM OPT)", "https://naceweb.org/public-policy-and-legal/legislation-and-regulations/a-guide-to-work-options-for-foreign-students"),
  "us_cost": ("University of Illinois Urbana-Champaign: 2026–27 MSPE programme costs", "https://economics.illinois.edu/academics/master-science-policy-economics/admission/program-costs/2026-2027-mspe-program-costs"),
  "us_stats": ("Open Doors 2025: India fact sheet (IIE)", "https://opendoorsdata.org/wp-content/uploads/2026/01/OD_India_Fact-Sheet-2025.pdf"),
- "mea": ("Orissa Post: MEA written reply in the Rajya Sabha on Indian students abroad (December 2025)", "https://www.orissapost.com/over-18-lakh-indians-study-abroad-govt-flags-visa-violations-behind-many-deportations/amp/"),
+ "mea": ("Ministry of External Affairs (India): Data on Indian students abroad, as on 1 January 2025", "https://www.mea.gov.in/Images/CPV/557-en-01-04-12-2025.pdf"),
  "chevening": ("Business Today: Chevening 2027/28 opens — deadline and what it covers", "https://www.businesstoday.in/nri/story/chevening-scholarship-opens-for-2027-28-who-can-apply-what-it-covers-key-deadline-for-indians-555345-2026-09-14"),
  "csc": ("Commonwealth Scholarship Commission: Commonwealth Master's Scholarships", "https://cscuk.fcdo.gov.uk/masters"),
  "great_in": ("Careers360: GREAT Scholarships 2027 for Indian students (British Council)", "https://news.careers360.com/4-uk-universities-offer-indian-students-10000-pounds-great-scholarships-2027-postgraduate-courses-british-council"),
@@ -246,21 +246,21 @@ def sections(lang):
        if E else
        "র‍্যাংকিং পুরো বিশ্ববিদ্যালয়কে মাপে, বেশিটাই গবেষণার সুনাম। আপনার সিদ্ধান্তে কোর্সের বিষয়বস্তু, আপনার বিষয়ে বিভাগটা কত ভালো, মোট খরচ, জায়গা আর চাকরির সুযোগ বেশি জরুরি। ১৫০ নম্বরে থাকা বিশ্ববিদ্যালয় আপনার বিষয়ে ৩০ নম্বরের চেয়ে ভালো হতেই পারে।")),
      ("How many Indian students study abroad, and where?" if E else "কতজন ভারতীয় ছাত্র বিদেশে পড়ে, আর কোথায়?",
-      ("<ul><li><b>About 18.82 lakh</b> Indian students were abroad in 2025, in 153 countries; top destinations Canada (4.27 lakh), USA (2.55 lakh), UAE (2.53 lakh), Australia (1.96 lakh), UK (1.73 lakh) — Ministry of External Affairs reply in the Rajya Sabha [mea].</li>"
-       "<li><b>USA:</b> India was the largest source of international students in 2024/25; Open Doors counts 363,019 Indian students, 143,740 of them on OPT [us_stats].</li>"
-       "<li><b>UK:</b> 82,523 study visas went to Indian main applicants in the year to June 2026 — 23% of all 365,868 [uk_stats].</li>"
-       "<li><b>Germany:</b> a record 69,816 Indian students in winter semester 2025/26, up 17.5% in a year [de_stats].</li></ul>"
-       "Counting methods differ (visas issued vs students enrolled), so the numbers are not directly comparable. More, including Bangladesh and subjects: <a href=\"/statistics/\">Students abroad: the numbers</a>.")
+      ("<ul><li><b>12.54 lakh</b> Indian students were at universities or other tertiary institutions abroad on 1 January 2025, according to India's Ministry of External Affairs. Its headline total of 18.82 lakh also counts 6.28 lakh school pupils. Largest university-level destinations: Canada 4.27 lakh, USA 2.55 lakh, UK 1.73 lakh, Australia 1.39 lakh [mea].</li>"
+       "<li><b>USA (2024/25):</b> Open Doors counts 363,019 Indian students — 219,279 enrolled plus 143,740 graduates on OPT work permits [us_stats].</li>"
+       "<li><b>UK:</b> 82,523 study <i>visas</i> went to Indian main applicants in the year to June 2026 — a count of visas granted, not of students in the UK [uk_stats].</li>"
+       "<li><b>Germany:</b> about 69,000 international students from India in winter semester 2025/26, the largest group [de_stats].</li></ul>"
+       "These measures differ, so do not add them up. Details, Bangladesh and subjects: <a href=\"/statistics/\">Students abroad: the numbers</a>.")
       if E else
-      ("<ul><li>২০২৫-এ <b>প্রায় ১৮.৮২ লাখ</b> ভারতীয় ছাত্র ১৫৩টি দেশে পড়ছিল; প্রধান দেশ কানাডা (৪.২৭ লাখ), USA (২.৫৫ লাখ), UAE (২.৫৩ লাখ), অস্ট্রেলিয়া (১.৯৬ লাখ), UK (১.৭৩ লাখ) — রাজ্যসভায় বিদেশ মন্ত্রকের উত্তর [mea]।</li>"
-       "<li><b>USA:</b> ২০২৪/২৫-এ বিদেশি ছাত্রদের সবচেয়ে বড় উৎস ভারত; Open Doors-এর হিসেবে ৩,৬৩,০১৯ জন ভারতীয় ছাত্র, তার মধ্যে ১,৪৩,৭৪০ জন OPT-তে [us_stats]।</li>"
-       "<li><b>UK:</b> জুন ২০২৬ পর্যন্ত এক বছরে ৮২,৫২৩টি স্টাডি ভিসা পেয়েছেন ভারতীয় মূল আবেদনকারীরা — মোট ৩,৬৫,৮৬৮-এর ২৩% [uk_stats]।</li>"
-       "<li><b>জার্মানি:</b> শীতকালীন সেমেস্টার ২০২৫/২৬-এ রেকর্ড ৬৯,৮১৬ জন ভারতীয় ছাত্র, এক বছরে ১৭.৫% বেশি [de_stats]।</li></ul>"
-       "গোনার পদ্ধতি আলাদা (ভিসা দেওয়া বনাম ভর্তি হওয়া ছাত্র), তাই সংখ্যাগুলো সরাসরি তুলনা করা যায় না। বাংলাদেশ আর বিষয়ভিত্তিক হিসেব-সহ আরও: <a href=\"/bn/statistics/\">বিদেশে ছাত্রছাত্রী: সংখ্যার হিসেব</a>।")),
-         ("What about Singapore, Japan, China and Russia?" if E else "সিঙ্গাপুর, জাপান, চীন আর রাশিয়া?",
-      ("Fewer Indian students go there, for different reasons. Singapore (about 33,000) has world-class universities but few places; Russia (about 27,000) is chosen mostly for MBBS; China (about 5,300) fell after Covid visa bans; Japan (about 3,400) is held back mainly by language. Details and sources: <a href=\"/statistics/#other\">Students abroad: the numbers</a>."
+      ("<ul><li>ভারতের বিদেশ মন্ত্রকের হিসেবে ১ জানুয়ারি ২০২৫-এ <b>১২.৫৪ লাখ</b> ভারতীয় ছাত্রছাত্রী বিদেশের বিশ্ববিদ্যালয় বা অন্য উচ্চশিক্ষা প্রতিষ্ঠানে ছিল। তাদের মোট ১৮.৮২ লাখের মধ্যে ৬.২৮ লাখ স্কুলের ছাত্রছাত্রী। বিশ্ববিদ্যালয়-স্তরে বড় গন্তব্য: কানাডা ৪.২৭ লাখ, USA ২.৫৫ লাখ, UK ১.৭৩ লাখ, অস্ট্রেলিয়া ১.৩৯ লাখ [mea]।</li>"
+       "<li><b>USA (২০২৪/২৫):</b> Open Doors-এর হিসেবে ৩,৬৩,০১৯ জন ভারতীয় — ভর্তি ২,১৯,২৭৯, আর OPT ওয়ার্ক পারমিটে ১,৪৩,৭৪০ জন গ্র্যাজুয়েট [us_stats]।</li>"
+       "<li><b>UK:</b> জুন ২০২৬ পর্যন্ত এক বছরে ভারতীয় মূল আবেদনকারীরা ৮২,৫২৩টি স্টাডি <i>ভিসা</i> পেয়েছেন — এটা দেওয়া ভিসার সংখ্যা, UK-তে থাকা ছাত্রের নয় [uk_stats]।</li>"
+       "<li><b>জার্মানি:</b> শীতকালীন সেমেস্টার ২০২৫/২৬-এ ভারত থেকে প্রায় ৬৯,০০০ আন্তর্জাতিক ছাত্র, সবচেয়ে বড় দল [de_stats]।</li></ul>"
+       "মাপগুলো আলাদা, তাই যোগ করবেন না। বিস্তারিত, বাংলাদেশ আর বিষয়ভিত্তিক তথ্য: <a href=\"/bn/statistics/\">বিদেশে ছাত্রছাত্রী: সংখ্যার হিসেব</a>।")),
+     ("What about Singapore, Japan, China and Russia?" if E else "সিঙ্গাপুর, জাপান, চীন আর রাশিয়া?",
+      ("At university level, few Indians go to these countries, for different reasons (MEA, 1 January 2025): Russia about 27,000, mostly for MBBS; China about 5,300, down after Covid visa bans; Singapore about 3,250, because places at NUS and NTU are few and competitive; Japan about 1,500, where language is the main barrier. Singapore and the UAE also have many Indian <i>school</i> pupils, which inflates their totals [mea]. Details and sources: <a href=\"/statistics/#other\">Students abroad: the numbers</a>."
        if E else
-       "সেখানে ভারতীয় ছাত্র কম যায়, আলাদা আলাদা কারণে। সিঙ্গাপুরে (প্রায় ৩৩,০০০) বিশ্বমানের বিশ্ববিদ্যালয় আছে কিন্তু আসন কম; রাশিয়ায় (প্রায় ২৭,০০০) বেশিরভাগ MBBS পড়তে যায়; চীনে (প্রায় ৫,৩০০) কোভিডের ভিসা নিষেধাজ্ঞার পর সংখ্যা কমেছে; জাপানে (প্রায় ৩,৪০০) মূল বাধা ভাষা। বিস্তারিত আর সূত্র: <a href=\"/bn/statistics/#other\">বিদেশে ছাত্রছাত্রী: সংখ্যার হিসেব</a>।")),
+       "বিশ্ববিদ্যালয়-স্তরে এই দেশগুলোতে ভারতীয় কম যায়, আলাদা আলাদা কারণে (MEA, ১ জানুয়ারি ২০২৫): রাশিয়ায় প্রায় ২৭,০০০, বেশিরভাগ MBBS; চীনে প্রায় ৫,৩০০, কোভিডের ভিসা নিষেধাজ্ঞার পর কমেছে; সিঙ্গাপুরে প্রায় ৩,২৫০, কারণ NUS আর NTU-তে আসন কম আর ভর্তি কঠিন; জাপানে প্রায় ১,৫০০, মূল বাধা ভাষা। সিঙ্গাপুর আর UAE-তে অনেক ভারতীয় <i>স্কুল</i>-ছাত্রও আছে, তাই তাদের মোট সংখ্যা বড় দেখায় [mea]। বিস্তারিত আর সূত্র: <a href=\"/bn/statistics/#other\">বিদেশে ছাত্রছাত্রী: সংখ্যার হিসেব</a>।")),
 ]))
     # ---------------- 6. Safety ----------------
     S.append(("safety", "Safety" if E else "নিরাপত্তা", [
