@@ -222,3 +222,9 @@ sup { line-height: 0; }
 @media print { .page { background: none; } }
 .hero { padding-bottom: 0; }
 .hero .lede { margin-bottom: 0; }
+/* Wordmark: let tall Bengali strokes (ি, ঠ) extend above and below the line box without being clipped */
+.wordmark { overflow: visible; }
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes write { from { clip-path: inset(-60% 100% -60% -5%); } to { clip-path: inset(-60% -5% -60% -5%); } }
+  .wordmark { animation: write .9s ease-out both; }
+}
