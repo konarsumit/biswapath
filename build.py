@@ -300,6 +300,7 @@ def universities(lang):
     body = f"""<article class="wrap prose uni">
 <h1>{t['h1']}</h1>
 <p>{t['intro']}</p>{t['lang_note']}
+<p><a href="/downloads/BiswaPath_University_Guide_2027.xlsx" download>{'Download the full list as an Excel file' if lang=='en' else 'পুরো তালিকা Excel ফাইল হিসেবে ডাউনলোড করুন'}</a></p>
 <div class="ufilters"><input id="uq" type="search" placeholder="{t['search']}" aria-label="{t['search']}">
 <select id="uc" aria-label="{t['all']}"><option value="">{t['all']}</option><option>UK</option><option>Germany</option><option>Sweden</option><option>USA</option></select></div>
 <div id="ulist"></div>
