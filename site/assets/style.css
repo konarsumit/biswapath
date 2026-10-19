@@ -126,3 +126,16 @@ a:hover { color: var(--margin); }
   @keyframes write { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
 }
 @media print { .page::before, .nav, .lang { display: none; } }
+
+/* University finder */
+.uni .ufilters { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1.2rem 0 .4rem; max-width: 40em; }
+.uni .ufilters input, .uni .ufilters select { font: inherit; font-size: 1rem; padding: .55rem .7rem; border: 1.5px solid var(--ink); border-radius: 6px; background: #fff; color: var(--text); }
+.uni .ufilters input { flex: 2 1 220px; min-width: 0; } .uni .ufilters select { flex: 1 1 140px; }
+.uni h2.ucountry { margin-top: 2.2rem; }
+.uni .unote { color: var(--muted); font-size: .95rem; max-width: 40em; }
+.ucard { border-top: 1px solid var(--rule); padding: 1rem 0 .4rem; max-width: 44em; }
+.ucard h3 { margin: 0 0 .4rem; font-family: "Tiro Bangla", serif; font-weight: 400; font-size: 1.35rem; color: var(--text); }
+.ucity { color: var(--muted); font-family: "Hind Siliguri", sans-serif; font-size: .9rem; }
+.ucard dl { display: grid; grid-template-columns: 13rem 1fr; gap: .25rem 1rem; margin: 0; font-size: .97rem; }
+.ucard dt { color: var(--muted); } .ucard dd { margin: 0; overflow-wrap: anywhere; }
+@media (max-width: 640px) { .ucard dl { grid-template-columns: 1fr; } .ucard dt { margin-top: .4rem; font-weight: 600; } }

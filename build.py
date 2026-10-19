@@ -7,12 +7,12 @@ YEAR = "2026"
 
 T = {  # interface text
  "en": dict(lang="en", other="bn", other_label="বাংলা", skip="Skip to content",
-   nav=[("School", "/#school"), ("Study abroad", "/#abroad"), ("Research & PhD", "/#research"), ("About", "/about/"), ("Contribute", "/contribute/")],
+   nav=[("School", "/#school"), ("Universities", "/universities/"), ("Study abroad", "/#abroad"), ("Research & PhD", "/#research"), ("About", "/about/"), ("Contribute", "/contribute/")],
    foot_nav=[("About", "/about/"), ("Contribute", "/contribute/"), ("Editorial policy", "/editorial-policy/"), ("Privacy", "/privacy/")],
    foot="BiswaPath is free for every student, always. Founded by Dr Sumit Konar.",
    soon="In preparation"),
  "bn": dict(lang="bn", other="en", other_label="English", skip="মূল লেখায় যান",
-   nav=[("স্কুল", "/bn/#school"), ("বিদেশে পড়াশোনা", "/bn/#abroad"), ("গবেষণা ও PhD", "/bn/#research"), ("আমাদের কথা", "/bn/about/"), ("যুক্ত হোন", "/bn/contribute/")],
+   nav=[("স্কুল", "/bn/#school"), ("বিশ্ববিদ্যালয়", "/bn/universities/"), ("বিদেশে পড়াশোনা", "/bn/#abroad"), ("গবেষণা ও PhD", "/bn/#research"), ("আমাদের কথা", "/bn/about/"), ("যুক্ত হোন", "/bn/contribute/")],
    foot_nav=[("আমাদের কথা", "/bn/about/"), ("যুক্ত হোন", "/bn/contribute/"), ("সম্পাদকীয় নীতি", "/bn/editorial-policy/"), ("গোপনীয়তা", "/bn/privacy/")],
    foot="বিশ্বপাঠ সব ছাত্রছাত্রীর জন্য সবসময় বিনামূল্যে। প্রতিষ্ঠাতা ড. সুমিত কোনার।",
    soon="প্রস্তুত হচ্ছে"),
@@ -273,6 +273,44 @@ def prose(lang, slug):
     body = f'<article class="wrap prose"><h1>{title}</h1>{inner}</article>'
     return page(lang, path, title, desc, body, current=path)
 
+
+# ---------- UNIVERSITY FINDER ----------
+import json as _json
+UDATA = _json.load(open(os.path.join(os.path.dirname(__file__), "data", "universities.json"), encoding="utf-8"))
+UT = {
+ "en": dict(title="University finder", desc="Application fees, deadlines, scholarships and ways to talk to current students at 35 universities in the UK, Germany, Sweden and the USA.",
+   h1="University finder", intro="Fees, deadlines and scholarships for 35 universities, with links to talk to current students. Every figure links to the official page it came from. Always check it there before you apply.",
+   search="Search a university or city", all="All countries", fee="Postgraduate application fee", deadline="Postgraduate deadlines", tuition="Example tuition", sch="Scholarships", chat="Talk to current students", soc="Indian / Bengali / Bangladeshi societies", ug="Undergraduate", phd="PhD", src="Source", web="Website", none="No university matches. Try another name or country.",
+   amb_h="Student ambassadors", amb="Each university's official chat service lets you message current students, and you can usually choose students from India or Bangladesh. We don't publish students' personal details. Are you a Bengali student abroad? Volunteer as a BiswaPath ambassador on the contribute page.",
+   checked="Checked 19 October 2026", lang_note="", chat_link="Open the chat page", src_link="Official page"),
+ "bn": dict(title="বিশ্ববিদ্যালয় খুঁজুন", desc="UK, জার্মানি, সুইডেন ও USA-র ৩৫টি বিশ্ববিদ্যালয়ের আবেদন ফি, ডেডলাইন, স্কলারশিপ আর বর্তমান ছাত্রছাত্রীদের সঙ্গে কথা বলার উপায়।",
+   h1="বিশ্ববিদ্যালয় খুঁজুন", intro="৩৫টি বিশ্ববিদ্যালয়ের ফি, ডেডলাইন আর স্কলারশিপ, সঙ্গে বর্তমান ছাত্রছাত্রীদের সঙ্গে কথা বলার লিংক। প্রতিটি তথ্যের পাশে অফিসিয়াল সূত্রের লিংক আছে। আবেদনের আগে সেখানে অবশ্যই মিলিয়ে নিন।",
+   search="বিশ্ববিদ্যালয় বা শহরের নাম লিখুন", all="সব দেশ", fee="পোস্টগ্র্যাজুয়েট আবেদন ফি", deadline="পোস্টগ্র্যাজুয়েট ডেডলাইন", tuition="টিউশন ফি-র উদাহরণ", sch="স্কলারশিপ", chat="বর্তমান ছাত্রছাত্রীদের সঙ্গে কথা বলুন", soc="ভারতীয় / বাঙালি / বাংলাদেশি সোসাইটি", ug="আন্ডারগ্র্যাজুয়েট", phd="PhD", src="সূত্র", web="ওয়েবসাইট", none="কোনো বিশ্ববিদ্যালয় মেলেনি। অন্য নাম বা দেশ দিয়ে চেষ্টা করুন।",
+   amb_h="স্টুডেন্ট অ্যাম্বাসেডর", amb="প্রতিটি বিশ্ববিদ্যালয়ের অফিসিয়াল চ্যাট সার্ভিসে বর্তমান ছাত্রছাত্রীদের মেসেজ করা যায়, আর সাধারণত ভারত বা বাংলাদেশের ছাত্রছাত্রী বেছে নেওয়া যায়। আমরা কারও ব্যক্তিগত তথ্য প্রকাশ করি না। আপনি কি বিদেশে পড়া বাঙালি ছাত্র? যুক্ত হোন পেজে বিশ্বপাঠ অ্যাম্বাসেডর হিসেবে নাম দিন।",
+   chat_link="চ্যাট পেজ খুলুন", src_link="অফিসিয়াল পেজ", checked="যাচাই: ১৯ অক্টোবর ২০২৬", lang_note='<p class="updated">বিশ্ববিদ্যালয়ের তথ্যগুলো ইংরেজিতে দেওয়া হয়েছে, যাতে অফিসিয়াল পেজের সঙ্গে সহজে মেলানো যায়।</p>'),
+}
+PHD = {"UK": "Funded PhDs (studentships) are listed on each university's research pages and on FindAPhD; most funding deadlines fall December–March.",
+       "Germany": "PhDs are often paid research posts; search the DAAD PhD database and university job pages.",
+       "Sweden": "PhD places are paid jobs, advertised as vacancies on university websites.",
+       "USA": "PhD offers usually include tuition and a stipend; most applications close in December."}
+
+def universities(lang):
+    t = UT[lang]; pre = "" if lang == "en" else "/bn"
+    data = {"unis": list(UDATA["unis"].values()), "country": UDATA["country"], "phd": PHD, "t": t}
+    body = f"""<article class="wrap prose uni">
+<h1>{t['h1']}</h1>
+<p>{t['intro']}</p>{t['lang_note']}
+<div class="ufilters"><input id="uq" type="search" placeholder="{t['search']}" aria-label="{t['search']}">
+<select id="uc" aria-label="{t['all']}"><option value="">{t['all']}</option><option>UK</option><option>Germany</option><option>Sweden</option><option>USA</option></select></div>
+<div id="ulist"></div>
+<h2>{t['amb_h']}</h2><p>{t['amb']}</p><p><a class="btn" href="{pre}/contribute/">{'Volunteer as an ambassador' if lang=='en' else 'অ্যাম্বাসেডর হিসেবে নাম দিন'}</a></p>
+<p class="updated">{t['checked']}</p>
+</article>
+<script>var U={_json.dumps(data, ensure_ascii=False)};</script>
+<script src="/assets/universities.js"></script>"""
+    path = "/universities/" if lang == "en" else "/bn/universities/"
+    return page(lang, path, t["title"], t["desc"], body, current=path)
+
 def write(rel, text):
     p = os.path.join(SITE, rel); os.makedirs(os.path.dirname(p), exist_ok=True)
     open(p, "w", encoding="utf-8").write(text)
@@ -282,11 +320,12 @@ for lang in ("en", "bn"):
     write(pre + "index.html", home(lang))
     for slug in PAGES:
         write(f"{pre}{slug}/index.html", prose(lang, slug))
+    write(f"{pre}universities/index.html", universities(lang))
 write("404.html", page("en", "/404/", "Page not found", "Page not found",
   '<article class="wrap prose"><h1>This page does not exist</h1><p>The link may be old or mistyped. <a href="/">Go to the BiswaPath home page</a>, or <a href="/bn/">বাংলা হোম পেজে যান</a>.</p></article>'))
 write("assets/favicon.svg", '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="#fafbf7"/><rect x="14" y="0" width="3" height="64" fill="#c42b2b"/><text x="38" y="46" font-family="serif" font-size="38" text-anchor="middle" fill="#1b3a8c">বি</text></svg>')
 write("robots.txt", "User-agent: *\nAllow: /\nSitemap: https://biswapath.pages.dev/sitemap.xml\n")
-urls = ["/", "/bn/"] + [f"/{s}/" for s in PAGES] + [f"/bn/{s}/" for s in PAGES]
+urls = ["/", "/bn/", "/universities/", "/bn/universities/"] + [f"/{s}/" for s in PAGES] + [f"/bn/{s}/" for s in PAGES]
 write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' +
       "".join(f"<url><loc>https://biswapath.pages.dev{u}</loc></url>" for u in urls) + "</urlset>\n")
 print("built", len(urls), "pages")
