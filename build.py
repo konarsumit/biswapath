@@ -1,6 +1,6 @@
 """Builds the BiswaPath static site into ./site (English at /, Bengali at /bn/).
 Run: python3 build.py   — then everything in ./site is ready to publish."""
-import os, html
+import os, html, urllib.parse
 
 SITE = os.path.join(os.path.dirname(__file__), "site")
 YEAR = "2026"
@@ -38,6 +38,14 @@ def page(lang, path, title, desc, body, current=None):
 <meta name="description" content="{html.escape(desc)}">
 <link rel="alternate" hreflang="en" href="https://biswapath.pages.dev{path if lang=='en' else alt}">
 <link rel="alternate" hreflang="bn" href="https://biswapath.pages.dev{path if lang=='bn' else alt}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BiswaPath · বিশ্বপাঠ">
+<meta property="og:title" content="{html.escape(full_title)}">
+<meta property="og:description" content="{html.escape(desc)}">
+<meta property="og:url" content="https://biswapath.pages.dev{path}">
+<meta property="og:image" content="https://biswapath.pages.dev/assets/biswapath-share.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="627">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/assets/fonts/tiro-bangla-bengali-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/style.css">
@@ -54,6 +62,7 @@ def page(lang, path, title, desc, body, current=None):
 </main>
 <footer class="wrap foot">
   <nav aria-label="Footer">{fnav}</nav>
+  <p><a href="https://www.linkedin.com/sharing/share-offsite/?url={urllib.parse.quote('https://biswapath.pages.dev' + path, safe='')}" target="_blank" rel="noopener">{'Share this page on LinkedIn' if lang=='en' else 'এই পেজটি LinkedIn-এ শেয়ার করুন'}</a></p>
   <p>{t['foot']} © {YEAR}</p>
 </footer>
 </div>
