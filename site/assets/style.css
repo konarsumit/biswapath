@@ -228,3 +228,21 @@ sup { line-height: 0; }
   @keyframes write { from { clip-path: inset(-60% 100% -60% -5%); } to { clip-path: inset(-60% -5% -60% -5%); } }
   .wordmark { animation: write .9s ease-out both; }
 }
+
+/* FAQ: questions written on the ruled lines, answers fold open */
+.prose .jump { line-height: var(--line-h); }
+.prose .jump a { white-space: nowrap; }
+.faq { max-width: 40em; border-top: 1px solid var(--rule); }
+.faq details { border-bottom: 1px solid var(--rule); }
+.faq summary { cursor: pointer; list-style: none; position: relative; padding: .5rem 0 .5rem 1.6rem; line-height: 1.5rem; min-height: var(--line-h); font-weight: 600; color: var(--text); }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::before { content: "+"; position: absolute; left: 0; top: .45rem; width: 1.1rem; text-align: center; font-family: "Tiro Bangla", serif; font-size: 1.3rem; line-height: 1.5rem; color: var(--margin); }
+.faq details[open] summary::before { content: "–"; }
+.faq summary:hover { color: var(--ink); }
+.faq .ans { padding: 0 0 .9rem 1.6rem; line-height: var(--line-h); }
+.faq .ans p { margin: 0 0 .5rem; }
+.faq .ans ul { margin: .2rem 0 .4rem; padding-left: 1.1rem; }
+.faq .ans li { margin: 0; }
+.faq .ans .tablewrap { margin: .4rem 0; }
+.inr { color: var(--muted); white-space: nowrap; }
+@media print { .faq details > .ans { display: block; } }
