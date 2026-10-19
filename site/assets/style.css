@@ -255,3 +255,25 @@ sup { line-height: 0; }
 .bar .fill { display: block; height: 100%; background: var(--ink); }
 .bar .val { text-align: right; font-variant-numeric: tabular-nums; color: var(--muted); white-space: nowrap; }
 @media (max-width: 480px) { .bar { grid-template-columns: 5.5rem 1fr 5.5rem; gap: .5rem; } }
+
+/* Header menus: three headings with drop-down lists */
+.nav { align-items: center; gap: .25rem 1.6rem; }
+.menu { position: relative; }
+.menu summary { list-style: none; cursor: pointer; color: var(--text); padding: .2rem 0; white-space: nowrap; }
+.menu summary::-webkit-details-marker { display: none; }
+.menu summary::after { content: ""; display: inline-block; width: .42em; height: .42em; margin-left: .45em; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-.2em) rotate(45deg); transition: transform .15s; }
+.menu[open] summary::after { transform: translateY(.05em) rotate(-135deg); }
+.menu summary:hover, .menu summary.here, .menu[open] summary { color: var(--ink); }
+.menu summary.here { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.menu .drop { position: absolute; top: calc(100% + .4rem); left: -1rem; z-index: 20; min-width: 15rem; display: flex; flex-direction: column;
+  background: var(--paper); border: 1px solid var(--rule); border-left: 3px solid var(--margin); box-shadow: 0 6px 18px rgba(27,58,140,.08);
+  background-image: linear-gradient(to bottom, transparent calc(var(--line-h) - 1px), var(--rule) calc(var(--line-h) - 1px)); background-size: 100% var(--line-h); padding: 0 1rem; }
+.menu .drop a { line-height: var(--line-h); text-decoration: none; color: var(--text); white-space: nowrap; }
+.menu .drop a:hover, .menu .drop a[aria-current] { color: var(--ink); text-decoration: underline; }
+@media (max-width: 760px) {
+  .nav { gap: .2rem 1.2rem; }
+  .menu { position: static; }
+  .menu .drop { left: var(--gutter); right: var(--gutter); min-width: 0; }
+  .top { position: relative; }
+}
+@media (min-width: 761px) { .menu:last-of-type .drop { left: auto; right: -1rem; } }

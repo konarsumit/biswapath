@@ -7,12 +7,16 @@ YEAR = "2026"
 
 T = {  # interface text
  "en": dict(lang="en", other="bn", other_label="বাংলা", skip="Skip to content",
-   nav=[("School", "/#school"), ("Universities", "/universities/"), ("Compare systems", "/education-systems/"), ("FAQ", "/faq/"), ("Statistics", "/statistics/"), ("Study abroad", "/#abroad"), ("Research & PhD", "/#research"), ("About", "/about/"), ("Contribute", "/contribute/")],
+   nav=[("Study abroad", [("Universities", "/universities/"), ("FAQ", "/faq/"), ("Statistics", "/statistics/"), ("Overview", "/#abroad")]),
+        ("Learn", [("School", "/#school"), ("Compare education systems", "/education-systems/"), ("Research & PhD", "/#research")]),
+        ("About", [("About BiswaPath", "/about/"), ("Contribute", "/contribute/"), ("Editorial policy", "/editorial-policy/")])],
    foot_nav=[("Education systems compared", "/education-systems/"), ("FAQ", "/faq/"), ("Statistics", "/statistics/"), ("About", "/about/"), ("Contribute", "/contribute/"), ("Editorial policy", "/editorial-policy/"), ("Privacy", "/privacy/")],
    foot="BiswaPath is free for every student, always. Founded by Dr Sumit Konar.",
    soon="In preparation"),
  "bn": dict(lang="bn", other="en", other_label="English", skip="মূল লেখায় যান",
-   nav=[("স্কুল", "/bn/#school"), ("বিশ্ববিদ্যালয়", "/bn/universities/"), ("শিক্ষাব্যবস্থার তুলনা", "/bn/education-systems/"), ("প্রশ্নোত্তর", "/bn/faq/"), ("পরিসংখ্যান", "/bn/statistics/"), ("বিদেশে পড়াশোনা", "/bn/#abroad"), ("গবেষণা ও PhD", "/bn/#research"), ("আমাদের কথা", "/bn/about/"), ("যুক্ত হোন", "/bn/contribute/")],
+   nav=[("বিদেশে পড়াশোনা", [("বিশ্ববিদ্যালয়", "/bn/universities/"), ("প্রশ্নোত্তর", "/bn/faq/"), ("পরিসংখ্যান", "/bn/statistics/"), ("এক নজরে", "/bn/#abroad")]),
+        ("শেখা", [("স্কুল", "/bn/#school"), ("শিক্ষাব্যবস্থার তুলনা", "/bn/education-systems/"), ("গবেষণা ও PhD", "/bn/#research")]),
+        ("আমাদের কথা", [("বিশ্বপাঠ সম্পর্কে", "/bn/about/"), ("যুক্ত হোন", "/bn/contribute/"), ("সম্পাদকীয় নীতি", "/bn/editorial-policy/")])],
    foot_nav=[("শিক্ষাব্যবস্থার তুলনা", "/bn/education-systems/"), ("প্রশ্নোত্তর", "/bn/faq/"), ("পরিসংখ্যান", "/bn/statistics/"), ("আমাদের কথা", "/bn/about/"), ("যুক্ত হোন", "/bn/contribute/"), ("সম্পাদকীয় নীতি", "/bn/editorial-policy/"), ("গোপনীয়তা", "/bn/privacy/")],
    foot="বিশ্বপাঠ সব ছাত্রছাত্রীর জন্য সবসময় বিনামূল্যে। প্রতিষ্ঠাতা ড. সুমিত কোনার।",
    soon="প্রস্তুত হচ্ছে"),
@@ -24,7 +28,12 @@ def other_path(lang, path):
 
 def page(lang, path, title, desc, body, current=None):
     t = T[lang]
-    nav = "".join(f'<a href="{h}"{" aria-current=\"page\"" if current == h else ""}>{l}</a>' for l, h in t["nav"])
+    nav = ""
+    for gl, items in t["nav"]:
+        here = any(current == h for _, h in items)
+        links = "".join(f'<a href="{h}"{" aria-current=\"page\"" if current == h else ""}>{l}</a>' for l, h in items)
+        nav += f'<details class="menu"><summary{" class=\"here\"" if here else ""}>{gl}</summary><div class="drop">{links}</div></details>'
+
     fnav = "".join(f'<a href="{h}">{l}</a>' for l, h in t["foot_nav"])
     alt = other_path(lang, path)
     home = "/" if lang == "en" else "/bn/"
@@ -50,6 +59,7 @@ def page(lang, path, title, desc, body, current=None):
 <link rel="preload" href="/assets/fonts/tiro-bangla-bengali-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/style.css">
 <script src="/assets/rule.js" defer></script>
+<script src="/assets/menu.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">{t['skip']}</a>
