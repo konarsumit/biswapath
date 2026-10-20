@@ -290,6 +290,6 @@ sup { line-height: 0; }
 
 /* World Explorer: full-width map framed like a page pasted into the notebook */
 .mapwrap { margin: 1.2rem 0 0; padding: 0 var(--gutter) 0 calc(var(--margin-x) + var(--gutter)); }
-.mapwrap iframe { display: block; width: 100%; height: min(78vh, 760px); min-height: 420px; border: 1px solid var(--rule); border-left: 3px solid var(--margin); background: #fff; box-shadow: 0 6px 18px rgba(27,58,140,.06); }
+.mapwrap iframe { display: block; width: 100%; height: min(72vh, 640px); min-height: 420px; border: 1px solid var(--rule); border-left: 3px solid var(--margin); background: #fff; box-shadow: 0 6px 18px rgba(27,58,140,.06); }
 .prose.explorer { padding-top: 1.6rem; }
 @media (max-width: 760px) { .mapwrap { padding: 0 12px 0 calc(var(--margin-x) + 8px); } .mapwrap iframe { height: 70vh; min-height: 380px; } }

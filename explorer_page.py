@@ -52,7 +52,15 @@ def content(lang):
     inner = f"""<p>{t['intro']}</p>
 <p><a class="btn" href="{VIEW}" target="_blank" rel="noopener">{t['open']}</a> <span class="updated">{t['open_note']}</span></p>
 </article>
-<div class="mapwrap"><iframe src="{EMBED}" title="{t['frame']}" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+<div class="mapwrap"><iframe id="wxmap" src="{EMBED}&amp;ll=30,10&amp;z=3" title="{t['frame']}" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+<script>
+// Start zoomed in enough that the world is not repeated side by side; wider screens need a closer zoom.
+(function () {{
+  var f = document.getElementById("wxmap"), w = f.clientWidth || window.innerWidth;
+  var z = w > 1000 ? 3 : 2, ll = w > 1000 ? "30,10" : "28,40";
+  f.src = "{EMBED}&ll=" + ll + "&z=" + z;
+}})();
+</script>
 <article class="wrap prose explorer">
 <h2>{t['layers_h']}</h2><ul>{layers}</ul>
 <h2>{t['how_h']}</h2><ol>{how}</ol>

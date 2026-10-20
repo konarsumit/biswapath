@@ -32,7 +32,15 @@
 <article class="wrap prose"><h1>বিশ্বপাঠ বিশ্বমানচিত্র | World Explorer</h1><p>বিদেশে যাওয়ার আগে প্রত্যেক ছাত্র দুটো প্রশ্ন করে: <em>কোথায় পড়তে পারি?</em> আর <em>সেখানে গেলে কাছাকাছি কারা থাকবে?</em> — দুটোর উত্তর একটা মানচিত্রে।</p>
 <p><a class="btn" href="https://www.google.com/maps/d/viewer?mid=1iAQeb6f1nSrqDbnwVxNS8QmyDqzPnHk" target="_blank" rel="noopener">Google Maps-এ মানচিত্রটা খুলুন</a> <span class="updated">নতুন ট্যাবে খুলবে; ফোনে Google Maps অ্যাপেও খুলতে পারে।</span></p>
 </article>
-<div class="mapwrap"><iframe src="https://www.google.com/maps/d/embed?mid=1iAQeb6f1nSrqDbnwVxNS8QmyDqzPnHk" title="বিশ্ববিদ্যালয় আর বাঙালি কমিউনিটির মানচিত্র" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+<div class="mapwrap"><iframe id="wxmap" src="https://www.google.com/maps/d/embed?mid=1iAQeb6f1nSrqDbnwVxNS8QmyDqzPnHk&amp;ll=30,10&amp;z=3" title="বিশ্ববিদ্যালয় আর বাঙালি কমিউনিটির মানচিত্র" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+<script>
+// Start zoomed in enough that the world is not repeated side by side; wider screens need a closer zoom.
+(function () {
+  var f = document.getElementById("wxmap"), w = f.clientWidth || window.innerWidth;
+  var z = w > 1000 ? 3 : 2, ll = w > 1000 ? "30,10" : "28,40";
+  f.src = "https://www.google.com/maps/d/embed?mid=1iAQeb6f1nSrqDbnwVxNS8QmyDqzPnHk&ll=" + ll + "&z=" + z;
+})();
+</script>
 <article class="wrap prose explorer">
 <h2>দুটো লেয়ার</h2><ul><li><b>Universities (বিশ্ববিদ্যালয়)</b> — আমাদের <a href="/bn/universities/">বিশ্ববিদ্যালয় খোঁজার পাতায়</a> থাকা বিশ্ববিদ্যালয়গুলো। ফি, ডেডলাইন আর স্কলারশিপের তথ্য অফিসিয়াল লিংক-সহ সেই পাতায় আছে।</li><li><b>Bengali Communities (বাঙালি কমিউনিটি)</b> — Global Puja Parikrama-র তালিকা থেকে বাঙালি সংগঠন আর দুর্গাপুজোর আয়োজকেরা। সারা বছর কাছাকাছি মানুষ খুঁজে পাওয়ার একটা শুরু।</li></ul>
 <h2>কীভাবে ব্যবহার করবেন</h2><ol><li>মানচিত্রের ওপরে বাঁদিকের তালিকা-আইকনে ক্লিক করে প্রতিটা লেয়ার দেখান বা লুকান।</li><li>কোনো মার্কারে ক্লিক করলে নাম আর বিস্তারিত দেখা যাবে।</li><li>যে শহরের কথা ভাবছেন, সেখানে জুম করলে দুটো লেয়ার একসঙ্গে দেখবেন।</li></ol>
