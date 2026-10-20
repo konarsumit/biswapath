@@ -32,15 +32,7 @@
 <article class="wrap prose"><h1>World Explorer | বিশ্বপাঠ বিশ্বমানচিত্র</h1><p>One map for two questions every student asks before going abroad: <em>where could I study?</em> and <em>who will be near me when I get there?</em></p>
 <p><a class="btn" href="https://www.google.com/maps/d/viewer?mid=1iAQeb6f1nSrqDbnwVxNS8QmyDqzPnHk" target="_blank" rel="noopener">Open the map in Google Maps</a> <span class="updated">Opens in a new tab; on a phone it can open in the Google Maps app.</span></p>
 </article>
-<div class="mapwrap"><iframe id="wxmap" src="https://www.google.com/maps/d/embed?mid=1iAQeb6f1nSrqDbnwVxNS8QmyDqzPnHk&amp;ll=30,10&amp;z=3" title="Map of universities and Bengali communities" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-<script>
-// Start zoomed in enough that the world is not repeated side by side; wider screens need a closer zoom.
-(function () {
-  var f = document.getElementById("wxmap"), w = f.clientWidth || window.innerWidth;
-  var z = w > 1000 ? 3 : 2, ll = w > 1000 ? "30,10" : "28,40";
-  f.src = "https://www.google.com/maps/d/embed?mid=1iAQeb6f1nSrqDbnwVxNS8QmyDqzPnHk&ll=" + ll + "&z=" + z;
-})();
-</script>
+<div class="mapwrap"><iframe src="https://www.google.com/maps/d/embed?mid=1iAQeb6f1nSrqDbnwVxNS8QmyDqzPnHk" title="Map of universities and Bengali communities" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe></div>
 <article class="wrap prose explorer">
 <h2>The two layers</h2><ul><li><b>Universities</b> — Universities listed in our <a href="/universities/">University finder</a>. Fees, deadlines and scholarships are on the finder, with links to official pages.</li><li><b>Bengali Communities</b> — Bengali associations and Durga Puja organisers, from the Global Puja Parikrama directory. They are a starting point for finding people near you, all year round.</li></ul>
 <h2>How to use it</h2><ol><li>Click the list icon at the top left of the map to show or hide each layer.</li><li>Click a marker to see its name and details.</li><li>Zoom in on the city you are considering to see both layers together.</li></ol>
